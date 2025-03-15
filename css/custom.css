@@ -2560,3 +2560,28 @@ body {
 .scroll-top-btn {
 	transition: all 0.3s ease;
 }
+
+/* Mobile link styling */
+.footer-info a,
+.contact__text a {
+	color: inherit;
+	text-decoration: none;
+	transition: var(--transition-fast);
+}
+
+.footer-info a:hover,
+.contact__text a:hover {
+	color: var(--primary-color);
+}
+
+/* Ensure tap targets are large enough on mobile */
+@media (max-width: 576px) {
+	.footer-info a,
+	.contact__text a,
+	.header__social a,
+	.footer-social a,
+	.contact__social a {
+		padding: 5px;
+		display: inline-block;
+	}
+}
