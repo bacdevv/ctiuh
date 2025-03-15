@@ -2283,14 +2283,15 @@ commitment-divider {
 .hero-slider-nav {
 	position: absolute;
 	top: 50%;
-	left: 30px; /* Điều chỉnh khoảng cách từ bên trái */
-	right: 30px; /* Điều chỉnh khoảng cách từ bên phải */
+	left: 20px;
+	right: 20px;
 	transform: translateY(-50%);
 	display: flex;
 	justify-content: space-between;
 	pointer-events: none;
 	z-index: 10;
 }
+
 .hero-slider-nav button {
 	background: rgba(0, 0, 0, 0.5);
 	border: none;
@@ -2302,9 +2303,23 @@ commitment-divider {
 	pointer-events: all;
 	cursor: pointer;
 	transition: background 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
 .hero-slider-nav button:hover {
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.8);
+	color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+	.hero-slider-nav button {
+		width: 40px;
+		height: 40px;
+		font-size: 18px;
+	}
 }
 
 /* Google Form Container */

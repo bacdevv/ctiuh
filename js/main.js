@@ -370,4 +370,23 @@ const easeInOutExpo = (t, b, c, d) =>
 			$("body").removeClass("scrolling-to-top");
 		}, 300);
 	});
+
+	// Ensure slider navigation buttons work correctly
+	$(function () {
+		// Make sure the hero slider is initialized
+		if ($(".hero-slider").length > 0) {
+			var hero_slider = $(".hero-slider");
+
+			// Navigation handlers
+			$(".hero-slider-nav .prev-slide").on("click", function (e) {
+				e.preventDefault();
+				hero_slider.slick("slickPrev");
+			});
+
+			$(".hero-slider-nav .next-slide").on("click", function (e) {
+				e.preventDefault();
+				hero_slider.slick("slickNext");
+			});
+		}
+	});
 })(jQuery);
