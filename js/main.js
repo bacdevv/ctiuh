@@ -366,19 +366,16 @@ const easeInOutExpo = (t, b, c, d) =>
 	// Xử lý khi click vào nút
 	scrollTopBtn.on("click", function (e) {
 		e.preventDefault();
-		// Thêm class khi bắt đầu cuộn lên
 		$("body").addClass("scrolling-to-top");
 
-		// Cuộn lên đầu trang với hiệu ứng mượt
-		$("html, body").animate(
-			{ scrollTop: 0 },
-			{
-				duration: 300, // Reduced duration for immediate yet smooth scroll
-				easing: "easeInOutExpo",
-				complete: function () {
-					$("body").removeClass("scrolling-to-top");
-				},
-			}
-		);
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
+
+		// Remove class after animation completes
+		setTimeout(() => {
+			$("body").removeClass("scrolling-to-top");
+		}, 300);
 	});
 })(jQuery);

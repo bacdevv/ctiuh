@@ -1242,7 +1242,7 @@ a {
 	opacity: 0;
 	z-index: 999;
 	overflow: hidden;
-	transition: all 0.4s ease;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	outline: none;
 }
 
@@ -2515,6 +2515,7 @@ commitment-divider {
 html {
 	scrollbar-width: thin; /* For Firefox */
 	scrollbar-color: #888 #f1f1f1; /* thumb and track */
+	scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
