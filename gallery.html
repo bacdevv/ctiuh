@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Thư viện ảnh | Căn tin IUH</title>
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap"
+			rel="stylesheet" />
+		<!-- Bootstrap 5 CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+			rel="stylesheet" />
+		<!-- Font Awesome 6 (sử dụng cú pháp FA6 mới) -->
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+			rel="stylesheet" />
+		<!-- SlickNav CSS -->
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/slicknav.min.css"
+			rel="stylesheet" />
+		<!-- Slick Slider CSS -->
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+			rel="stylesheet" />
+		<!-- Fresco Lightbox CSS -->
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/fresco/1.3.0/css/fresco.css"
+			rel="stylesheet" />
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/custom.css" />
+		<!-- Remove underline for all links -->
+		<style>
+			a {
+				text-decoration: none !important;
+			}
+		</style>
+		<meta
+			name="description"
+			content="Thư viện hình ảnh của căn tin trường Đại học Công nghiệp TP.HCM" />
+		<meta name="keywords" content="căn tin, iuh, đại học công nghiệp, thư viện ảnh" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<body>
+		<!-- Page Preloder -->
+		<div id="preloder">
+			<div class="loader-container">
+				<div class="loader-circle"></div>
+				<div class="loader-text">Đang tải...</div>
+			</div>
+		</div>
+
+		<!-- Header Section -->
+		<header class="header modern-header">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-4 col-md-3 order-2 order-sm-1">
+						<div class="header__social">
+							<a href="#"><i class="fa-brands fa-facebook"></i></a>
+							<a href="#"><i class="fa-brands fa-tiktok"></i></a>
+							<a href="mailto:vietbac.coding@gmail.com"
+								><i class="fa-solid fa-envelope"></i
+							></a>
+						</div>
+					</div>
+					<div class="col-sm-4 col-md-6 order-1 order-md-2 text-center">
+						<a href="./index.html" class="site-logo">
+							<img src="img/logo.png" alt="IUH Căn Tin" />
+						</a>
+					</div>
+					<div class="col-sm-4 col-md-3 order-3 order-sm-3">
+						<div class="header__switches">
+							<a href="#" class="search-switch"><i class="fa fa-search"></i></a>
+							<a href="#" class="nav-switch"><i class="fa fa-bars"></i></a>
+						</div>
+					</div>
+				</div>
+				<nav class="main__menu">
+					<ul class="nav__menu">
+						<li><a href="./index.html">Trang chủ</a></li>
+						<li><a href="./about.html">Giới thiệu</a></li>
+						<li><a href="./gallery.html" class="menu--active">Thư viện ảnh</a></li>
+						<li><a href="./contact.html">Liên hệ</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<!-- Header Section end -->
+
+		<!-- Gallery Section -->
+		<section class="gallery-section section-padding page-top-spacing">
+			<div class="container">
+				<div class="section-title text-center mb-5">
+					<h2>Thư viện hình ảnh Căn tin IUH</h2>
+					<p>Khám phá không gian và ẩm thực qua các góc nhìn khác nhau</p>
+				</div>
+
+				<div class="gallery-categories mb-5">
+					<h4 class="filter-heading text-center mb-4">Chọn danh mục bạn muốn xem</h4>
+					<ul class="gallery-filter">
+						<li class="active" data-filter="*">
+							<span><i class="fa fa-th-large"></i> Tất cả</span>
+						</li>
+						<li data-filter=".space">
+							<span><i class="fa fa-building"></i> Không gian</span>
+						</li>
+						<li data-filter=".food">
+							<span><i class="fa fa-cutlery"></i> Món ăn</span>
+						</li>
+						<li data-filter=".drink">
+							<span><i class="fa fa-coffee"></i> Đồ uống</span>
+						</li>
+						<li data-filter=".event">
+							<span><i class="fa fa-calendar"></i> Sự kiện</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="gallery__warp">
+					<div class="row gallery-items">
+						<div class="col-lg-3 col-md-4 col-sm-6 mix space">
+							<a
+								class="gallery__item fresco"
+								href="img/gallery/1.jpg"
+								data-fresco-group="gallery"
+								data-fresco-caption="Khu vực chính của căn tin cơ sở Nguyễn Văn Bảo">
+								<img src="img/gallery/1.jpg" alt="Không gian căn tin" />
+								<div class="gallery__item-info">
+									<h4>Không gian rộng rãi</h4>
+									<p>Khu vực chính</p>
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 mix food">
+							<a
+								class="gallery__item fresco"
+								href="img/gallery/2.jpg"
+								data-fresco-group="gallery"
+								data-fresco-caption="Đa dạng món ăn hàng ngày">
+								<img src="img/gallery/2.jpg" alt="Món ăn đa dạng" />
+								<div class="gallery__item-info">
+									<h4>Món ăn đa dạng</h4>
+									<p>Thực đơn hàng ngày</p>
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 mix space">
+							<a
+								class="gallery__item fresco"
+								href="img/gallery/3.jpg"
+								data-fresco-group="gallery"
+								data-fresco-caption="Không gian ăn uống thoáng đãng, hiện đại">
+								<img src="img/gallery/3.jpg" alt="Không gian hiện đại" />
+								<div class="gallery__item-info">
+									<h4>Thiết kế hiện đại</h4>
+									<p>Không gian thoáng đãng</p>
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 mix drink">
+							<a
+								class="gallery__item fresco"
+								href="img/gallery/4.jpg"
+								data-fresco-group="gallery"
+								data-fresco-caption="Các loại đồ uống tươi ngon, phong phú">
+								<img src="img/gallery/4.jpg" alt="Đồ uống phong phú" />
+								<div class="gallery__item-info">
+									<h4>Đồ uống đa dạng</h4>
+									<p>Trà sữa, cà phê, sinh tố</p>
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 mix event">
+							<a
+								class="gallery__item fresco"
+								href="img/gallery/5.jpg"
+								data-fresco-group="gallery"
+								data-fresco-caption="Hoạt động khuyến mãi đặc biệt">
+								<img src="img/gallery/5.jpg" alt="Sự kiện khuyến mãi" />
+								<div class="gallery__item-info">
+									<h4>Khuyến mãi đặc biệt</h4>
+									<p>Các chương trình ưu đãi</p>
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 mix food">
+							<a
+								class="gallery__item fresco"
+								href="img/gallery/6.jpg"
+								data-fresco-group="gallery"
+								data-fresco-caption="Các món Căn tin CS2">
+								<img src="img/gallery/6.jpg" alt="Căn tin CS2" />
+								<div class="gallery__item-info">
+									<h4>Căn tin CS2</h4>
+									<p>Cơ sở phạm văn chiêu</p>
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 mix space">
+							<a
+								class="gallery__item fresco"
+								href="img/gallery/7.jpg"
+								data-fresco-group="gallery"
+								data-fresco-caption="Khu vực dành cho sinh viên học nhóm">
+								<img src="img/gallery/7.jpg" alt="Khu vực học nhóm" />
+								<div class="gallery__item-info">
+									<h4>Không gian học tập</h4>
+									<p>Khu vực học nhóm</p>
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 mix event">
+							<a
+								class="gallery__item fresco"
+								href="img/gallery/8.jpg"
+								data-fresco-group="gallery"
+								data-fresco-caption="Giao lưu văn nghệ trong căn tin">
+								<img src="img/gallery/8.jpg" alt="Quầy đồ ăn" />
+								<div class="gallery__item-info">
+									<h4>Quầy đồ ăn</h4>
+									<p>Đồ ăn phong phú</p>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					<!-- Thông báo khi không có ảnh -->
+					<div class="no-items-message text-center py-5" style="display: none">
+						<div class="no-items-container">
+							<i class="fa fa-picture-o mb-3"></i>
+							<h4>Chưa có thông tin</h4>
+							<p>Danh mục này hiện chưa có hình ảnh nào.</p>
+							<button class="btn mt-3 reset-filter">Xem tất cả ảnh</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Hiển thị số lượng ảnh đang hiện -->
+				<div class="gallery-counter text-center mt-4">
+					<span>Đang hiển thị: </span>
+					<span class="category-name font-weight-bold">Tất cả</span>
+					<span class="item-count ml-2">(<span id="visible-count">8</span> ảnh)</span>
+				</div>
+			</div>
+		</section>
+		<!-- Gallery Section end -->
+
+		<!-- Gallery Info Section -->
+		<section class="gallery-info-section section-padding bg-light">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="gallery-info-text">
+							<h2>Khoảnh khắc đáng nhớ tại Căn tin IUH</h2>
+							<p>
+								Thư viện ảnh của chúng tôi ghi lại những khoảnh khắc đời thường,
+								những món ăn ngon và không gian thân thiện tại căn tin IUH. Mỗi bức
+								ảnh là một câu chuyện, phản ánh văn hóa ẩm thực và sự gắn kết của
+								cộng đồng sinh viên tại trường.
+							</p>
+							<p>
+								Thư viện được cập nhật thường xuyên với các hình ảnh mới về món ăn,
+								đồ uống, không gian và sự kiện đặc biệt diễn ra tại căn tin. Nếu bạn
+								có những khoảnh khắc đẹp chụp tại căn tin IUH, hãy chia sẻ với chúng
+								tôi để có cơ hội xuất hiện trong thư viện ảnh này.
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="gallery-info-stats">
+							<div class="row">
+								<div class="col-md-6 mb-4">
+									<div
+										class="stat-item text-center bg-white p-4 shadow-soft border-radius-medium">
+										<div class="stat-icon mb-3">
+											<i class="fa fa-camera-retro"></i>
+										</div>
+										<h3>200+</h3>
+										<p>Hình ảnh chất lượng cao</p>
+									</div>
+								</div>
+								<div class="col-md-6 mb-4">
+									<div
+										class="stat-item text-center bg-white p-4 shadow-soft border-radius-medium">
+										<div class="stat-icon mb-3">
+											<i class="fa fa-cutlery"></i>
+										</div>
+										<h3>50+</h3>
+										<p>Món ăn đặc trưng</p>
+									</div>
+								</div>
+								<div class="col-md-6 mb-4">
+									<div
+										class="stat-item text-center bg-white p-4 shadow-soft border-radius-medium">
+										<div class="stat-icon mb-3">
+											<i class="fa fa-coffee"></i>
+										</div>
+										<h3>30+</h3>
+										<p>Loại đồ uống khác nhau</p>
+									</div>
+								</div>
+								<div class="col-md-6 mb-4">
+									<div
+										class="stat-item text-center bg-white p-4 shadow-soft border-radius-medium">
+										<div class="stat-icon mb-3">
+											<i class="fa fa-users"></i>
+										</div>
+										<h3>1000+</h3>
+										<p>Lượt thích và chia sẻ</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Gallery Info Section end -->
+
+		<!-- Footer Section -->
+		<footer class="footer__section">
+			<svg class="footer__wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100">
+				<path
+					fill="#ffffff"
+					fill-opacity="1"
+					d="M0,32L60,37.3C120,43,240,53,360,48C480,43,600,21,720,21.3C840,21,960,43,1080,53.3C1200,64,1320,64,1380,64L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+			</svg>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-6">
+						<div class="footer-widget">
+							<h5>Về Căn Tin IUH</h5>
+							<div class="about-footer">
+								<p>
+									Căn tin Trường Đại học Công nghiệp TP.HCM là điểm đến ẩm thực lý
+									tưởng với không gian hiện đại, thực đơn phong phú và chất lượng,
+									phục vụ chuyên nghiệp.
+								</p>
+							</div>
+							<div class="footer-social">
+								<a href="#"><i class="fa-brands fa-facebook"></i></a>
+								<a href="#"><i class="fa-brands fa-tiktok"></i></a>
+								<a href="mailto:vietbac.coding@gmail.com"
+									><i class="fa-solid fa-envelope"></i
+								></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<div class="footer-widget">
+							<h5>Thông Tin Liên Hệ</h5>
+							<ul class="footer-info">
+								<li>
+									<i class="fa fa-map-marker"></i>
+									<div>
+										<span
+											>12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM</span
+										>
+									</div>
+								</li>
+								<li>
+									<i class="fa fa-phone"></i>
+									<div>
+										<span>(028) 3840 4462</span>
+										<span>(028) 3849 0901</span>
+									</div>
+								</li>
+								<li>
+									<i class="fa fa-envelope"></i>
+									<div>
+										<span>dichvu@iuh.edu.vn</span>
+										<span>cantin@iuh.edu.vn</span>
+									</div>
+								</li>
+							</ul>
+							<div class="footer-location-map">
+								<iframe
+									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.858544068298!2d106.68522557587518!3d10.820074758345977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528e5496d03cf%3A0xa5b8e7395ec636b9!2zMTIgTmd1eeG7hW4gVsSDbiBC4bqjbywgUGjGsOG7nW5nIDQsIEfDsiBW4bqlcCwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1685641253079!5m2!1svi!2s"
+									width="100%"
+									height="100%"
+									style="border: 0"
+									allowfullscreen=""
+									loading="lazy"></iframe>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="footer-widget">
+							<h5>Giờ Hoạt Động</h5>
+							<div>
+								<p class="footer-campus">Cơ sở chính:</p>
+								<div class="footer-hours">
+									<span>Thứ 2 - Thứ 6</span>
+									<span>6:30 - 19:00</span>
+								</div>
+								<div class="footer-hours">
+									<span>Thứ 7</span>
+									<span>7:00 - 18:00</span>
+								</div>
+								<div class="footer-hours">
+									<span>Chủ nhật</span>
+									<span>7:00 - 17:30</span>
+								</div>
+								<p class="footer-campus">Cơ sở Phạm Văn Chiêu:</p>
+								<div class="footer-hours">
+									<span>Thứ 2 - Thứ 6</span>
+									<span>6:30 - 17:30</span>
+								</div>
+								<div class="footer-hours">
+									<span>Thứ 7</span>
+									<span>7:00 - 16:00</span>
+								</div>
+							</div>
+							<h5 style="margin-top: 30px">Đăng ký nhận thông tin</h5>
+							<p>Nhận thông tin về thực đơn mới và khuyến mãi</p>
+							<form class="newsletter-form">
+								<input type="email" placeholder="Email của bạn" />
+								<button type="submit"><i class="fa fa-paper-plane"></i></button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="footer__copyright">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="footer__copyright__text text-center">
+								<p>
+									©
+									<script>
+										document.write(new Date().getFullYear());
+									</script>
+									Bản quyền thuộc về Nhóm 7 - Toán Tin | Toan tính thông minh, dẫn
+									lối thành công
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- Footer Section end -->
+
+		<!-- Nút cuộn lên đầu trang -->
+		<button class="scroll-top-btn" id="scrollTopBtn">
+			<div class="scroll-top-inner">
+				<i class="fa fa-angle-up"></i>
+				<span class="ripple-circle"></span>
+				<span class="ripple-circle"></span>
+			</div>
+		</button>
+
+		<!-- Search Begin -->
+		<div class="search-model">
+			<div class="h-100 d-flex align-items-center justify-content-center">
+				<div class="search-close-switch">+</div>
+				<form class="search-model-form">
+					<input type="text" id="search-input" placeholder="Tìm kiếm tại đây....." />
+				</form>
+			</div>
+		</div>
+		<!-- Search End -->
+
+		<!-- CDN Scripts -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/fresco/1.3.0/js/fresco.min.js"></script>
+		<script src="js/main.js"></script>
+		<script>
+			$(window).on("load", function () {
+				var $grid = $(".gallery-items");
+				var $noItemsMessage = $(".no-items-message");
+				var $categoryName = $(".category-name");
+				var $visibleCount = $("#visible-count");
+
+				$grid.isotope({
+					itemSelector: ".mix",
+					layoutMode: "fitRows",
+					transitionDuration: "0.6s",
+					stagger: 50,
+				});
+
+				$(".gallery-filter li").on("click", function () {
+					// Cập nhật lớp active và ripple
+					$(".gallery-filter li").removeClass("active clicked");
+					$(this).addClass("active clicked");
+
+					var filterValue = $(this).attr("data-filter");
+					var filterName = $(this).text().trim();
+
+					// Gọi Isotope filter trực tiếp mà không ẩn container
+					$grid.isotope({ filter: filterValue }, function () {
+						var visibleItemsCount = $grid.isotope("getFilteredItemElements").length;
+						$categoryName.text(filterName);
+						$visibleCount.text(visibleItemsCount);
+						if (visibleItemsCount === 0) {
+							$noItemsMessage.fadeIn(300);
+						} else {
+							$noItemsMessage.fadeOut(300);
+						}
+					});
+				});
+
+				// Reset filter
+				$(".reset-filter").on("click", function () {
+					$(".gallery-filter li[data-filter='*']").trigger("click");
+				});
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Giới thiệu | Căn tin IUH</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome 6 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- SlickNav CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/slicknav.min.css" rel="stylesheet" />
+    <!-- Slick Slider CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" rel="stylesheet" />
+    <!-- Fresco Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fresco/1.3.0/css/fresco.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <!-- Remove underline for all links -->
+    <style>
+      a { text-decoration: none !important; }
+    </style>
+  </head>
+  <body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+      <div class="loader-container">
+        <div class="loader-circle"></div>
+        <div class="loader-text">Đang tải...</div>
+      </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header modern-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-4 col-md-3 order-2 order-sm-1">
+            <div class="header__social">
+              <a href="#"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="mailto:vietbac.coding@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-6 order-1 order-md-2 text-center">
+            <a href="./index.html" class="site-logo">
+              <img src="img/logo.png" alt="IUH Căn Tin" />
+            </a>
+          </div>
+          <div class="col-sm-4 col-md-3 order-3 order-sm-3">
+            <div class="header__switches">
+              <a href="#" class="search-switch"><i class="fa fa-search"></i></a>
+              <a href="#" class="nav-switch"><i class="fa fa-bars"></i></a>
+            </div>
+          </div>
+        </div>
+        <nav class="main__menu">
+          <ul class="nav__menu">
+            <li><a href="./index.html">Trang chủ</a></li>
+            <li><a href="./about.html" class="menu--active">Giới thiệu</a></li>
+            <li><a href="./gallery.html">Thư viện ảnh</a></li>
+            <li><a href="./contact.html">Liên hệ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Header Section end -->
+
+    <!-- About Section -->
+    <section class="about-section section-padding animate-on-scroll page-top-spacing">
+      <div class="container">
+        <div class="section-title text-center mb-5">
+          <h2>Giới thiệu về Căn tin IUH</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="about-text">
+              <h2 class="about__title">Lịch sử phát triển</h2>
+              <p class="mb-5">
+                Căn tin trường Đại học Công nghiệp TP.HCM được thành lập từ những
+                năm đầu khi trường chuyển đổi từ trường Cao đẳng Công nghiệp IV
+                thành Đại học Công nghiệp. Với hơn 15 năm phục vụ, căn tin IUH đã
+                trở thành địa điểm ẩm thực quen thuộc của nhiều thế hệ sinh viên và
+                cán bộ giảng viên nhà trường.
+              </p>
+
+              <h3>Tầm nhìn</h3>
+              <p>
+                Trở thành mô hình căn tin đại học kiểu mẫu, đáp ứng nhu cầu ẩm thực
+                đa dạng của cộng đồng IUH với chất lượng tốt nhất, giá cả hợp lý
+                nhất và dịch vụ chuyên nghiệp nhất.
+              </p>
+
+              <h3>Sứ mệnh</h3>
+              <p>
+                Cung cấp dịch vụ ăn uống đảm bảo an toàn vệ sinh thực phẩm, đa dạng
+                về chủng loại, phong phú về hương vị, tạo không gian thư giãn và
+                giao lưu cho sinh viên và cán bộ nhân viên trường Đại học Công
+                nghiệp TP.HCM.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="about-img">
+              <img
+                src="img/about-large.jpg"
+                alt="Căn tin IUH"
+                class="img-fluid border-radius-medium mb-4" />
+              <div class="row">
+                <div class="col-md-6">
+                  <img
+                    src="img/about-sm-1.jpg"
+                    alt="Không gian căn tin"
+                    class="img-fluid border-radius-medium mb-4" />
+                </div>
+                <div class="col-md-6">
+                  <img
+                    src="img/about-sm-2.jpg"
+                    alt="Món ăn căn tin"
+                    class="img-fluid border-radius-medium mb-4" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Section end -->
+
+    <!-- Features Section -->
+    <section class="features-section section-padding bg-light animate-on-scroll">
+      <div class="container">
+        <div class="section-title text-center mb-5">
+          <h2>Hai cơ sở phục vụ</h2>
+        </div>
+        <div class="row">
+          <!-- Cơ sở chính -->
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="location-card">
+              <div class="location-image">
+                <img src="img/feature-1.jpg" alt="Cơ sở chính" class="img-fluid" />
+              </div>
+              <div class="location-content">
+                <div class="location-header">
+                  <h3 class="location-title">Cơ sở chính</h3>
+                  <div class="location-badge">Cơ sở 1</div>
+                </div>
+                <div class="location-address">
+                  <i class="fa fa-map-marker"></i> 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp
+                </div>
+                <div class="location-description">
+                  <p>
+                    Tọa lạc tại khuôn viên chính của trường, căn tin cơ sở chính là không gian rộng lớn 
+                    với nhiều quầy hàng phong phú, đáp ứng nhu cầu ẩm thực đa dạng của hơn 20.000 sinh viên.
+                  </p>
+                </div>
+                <div class="location-features">
+                  <div class="feature-row">
+                    <div class="feature-item">
+                      <i class="fa fa-expand"></i>
+                      <div class="feature-detail">
+                        <span class="feature-value">1500m²</span>
+                        <span class="feature-label">Diện tích</span>
+                      </div>
+                    </div>
+                    <div class="feature-item">
+                      <i class="fa fa-users"></i>
+                      <div class="feature-detail">
+                        <span class="feature-value">800+</span>
+                        <span class="feature-label">Sức chứa</span>
+                      </div>
+                    </div>
+                    <div class="feature-item">
+                      <i class="fa fa-cutlery"></i>
+                      <div class="feature-detail">
+                        <span class="feature-value">15+</span>
+                        <span class="feature-label">Quầy hàng</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Cơ sở Phạm Văn Chiêu -->
+          <div class="col-lg-6">
+            <div class="location-card">
+              <div class="location-image">
+                <img src="img/feature-2.jpg" alt="Cơ sở Phạm Văn Chiêu" class="img-fluid" />
+              </div>
+              <div class="location-content">
+                <div class="location-header">
+                  <h3 class="location-title">Cơ sở Phạm Văn Chiêu</h3>
+                  <div class="location-badge">Cơ sở 2</div>
+                </div>
+                <div class="location-address">
+                  <i class="fa fa-map-marker"></i> Đường Phạm Văn Chiêu, Quận Gò Vấp
+                </div>
+                <div class="location-description">
+                  <p>
+                    Nằm trong khuôn viên cơ sở 2 của trường, căn tin cơ sở Phạm Văn Chiêu có không gian 
+                    nhỏ gọn, ấm cúng nhưng không kém phần hiện đại, phục vụ cho khoa Công nghệ Ô tô, khoa Điện, GDQPAN.
+                  </p>
+                </div>
+                <div class="location-features">
+                  <div class="feature-row">
+                    <div class="feature-item">
+                      <i class="fa fa-expand"></i>
+                      <div class="feature-detail">
+                        <span class="feature-value">500m²</span>
+                        <span class="feature-label">Diện tích</span>
+                      </div>
+                    </div>
+                    <div class="feature-item">
+                      <i class="fa fa-users"></i>
+                      <div class="feature-detail">
+                        <span class="feature-value">200+</span>
+                        <span class="feature-label">Sức chứa</span>
+                      </div>
+                    </div>
+                    <div class="feature-item">
+                      <i class="fa fa-cutlery"></i>
+                      <div class="feature-detail">
+                        <span class="feature-value">8+</span>
+                        <span class="feature-label">Quầy hàng</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+      <!-- Features Section end -->
+
+    <!-- Process Section -->
+    <section class="process-section section-padding animate-on-scroll">
+      <div class="container">
+        <div class="section-title text-center mb-5">
+          <h2>Cam kết của chúng tôi</h2>
+        </div>
+        <div class="row">
+          <!-- Cam kết 1: Thực phẩm sạch -->
+          <div class="col-md-4 mb-4">
+            <div class="commitment-card">
+              <div class="commitment-image">
+                <img src="img/commitment/food-safety.jpg" alt="Thực phẩm sạch">
+                <div class="commitment-icon">
+                  <i class="fa fa-leaf"></i>
+                </div>
+              </div>
+              <div class="commitment-content">
+                <h4 class="commitment-title">Thực phẩm sạch</h4>
+                <div class="commitment-divider"></div>
+                <p class="commitment-text">
+                  Nguyên liệu được lựa chọn kỹ càng, đảm bảo nguồn gốc xuất xứ rõ ràng
+                  và được kiểm soát chặt chẽ về chất lượng.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Cam kết 2: Đa dạng món ăn -->
+          <div class="col-md-4 mb-4">
+            <div class="commitment-card">
+              <div class="commitment-image">
+                <img src="img/commitment/food-variety.jpg" alt="Đa dạng món ăn">
+                <div class="commitment-icon">
+                  <i class="fa fa-cutlery"></i>
+                </div>
+              </div>
+              <div class="commitment-content">
+                <h4 class="commitment-title">Đa dạng món ăn</h4>
+                <div class="commitment-divider"></div>
+                <p class="commitment-text">
+                  Thực đơn phong phú với nhiều món ăn đặc trưng vùng miền, thay đổi
+                  theo tuần để đáp ứng nhu cầu đa dạng của sinh viên.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Cam kết 3: Phục vụ tận tâm -->
+          <div class="col-md-4 mb-4">
+            <div class="commitment-card">
+              <div class="commitment-image">
+                <img src="img/commitment/service-quality.jpg" alt="Phục vụ tận tâm">
+                <div class="commitment-icon">
+                  <i class="fa fa-heart"></i>
+                </div>
+              </div>
+              <div class="commitment-content">
+                <h4 class="commitment-title">Phục vụ tận tâm</h4>
+                <div class="commitment-divider"></div>
+                <p class="commitment-text">
+                  Đội ngũ nhân viên được đào tạo bài bản, luôn mỉm cười và nhiệt tình
+                  phục vụ khách hàng với phương châm "Khách hàng là thượng đế".
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Process Section end -->
+
+    <!-- Team Section -->
+    <section class="team-section section-padding bg-light animate-on-scroll">
+      <div class="container">
+        <div class="section-title text-center mb-5">
+          <h2>Về Nhóm Chúng Tôi</h2>
+          <p>Nhóm 7 - Toán Tin | Toan tính thông minh, dẫn lối thành công</p>
+        </div>
+
+        <div class="row mb-5">
+          <div class="col-lg-10 mx-auto">
+            <div class="team-info bg-white p-5 border-radius-medium shadow-soft">
+              <div class="team-info-header text-center mb-4">
+                <h3 class="team-document-title">Biên Bản Thành Lập Nhóm</h3>
+                <div class="document-divider">
+                  <span class="document-divider-icon"><i class="fa fa-star"></i></span>
+                </div>
+                <p class="team-document-date mt-3">
+                  Hôm nay, ngày 15 tháng 03 năm 2025, nhóm 7 tiến hành họp nhóm tại
+                  trường Đại học Công nghiệp TP Hồ Chí Minh.
+                </p>
+              </div>
+
+              <div class="team-document-section">
+                <h5 class="section-heading">Mục tiêu - nhiệm vụ của nhóm:</h5>
+                <ul class="feature-list document-list">
+                  <li>
+                    <i class="fa fa-check-circle"></i> 
+                    <div class="list-content">
+                      Học và rèn luyện các kỹ năng làm việc nhóm: giao tiếp; lắng nghe; thuyết phục; ra quyết định;
+                      lập kế hoạch; thu thập, xử lý thông tin; kiểm soát, tổ chức, phân công nhiệm vụ; quản lý thời gian; 
+                      giải quyết mâu thuẫn, giải quyết vấn đề; kỹ năng thuyết trình; kỹ năng tư duy - phản biện.
+                    </div>
+                  </li>
+                  <li>
+                    <i class="fa fa-check-circle"></i> 
+                    <div class="list-content">
+                      Tạo môi trường học tập hiệu quả, giúp các thành viên hỗ trợ lẫn nhau để nâng cao kiến thức
+                      và kỹ năng tực tiễn.
+                    </div>
+                  </li>
+                  <li>
+                    <i class="fa fa-check-circle"></i> 
+                    <div class="list-content">
+                      Áp dụng các phương pháp học theo nhóm để nâng cao trách nhiệm cá nhân, khả năng làm việc độc lập.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="team-document-section">
+                <h5 class="section-heading">Mục tiêu chung:</h5>
+                <ul class="feature-list document-list">
+                  <li>
+                    <i class="fa fa-check-circle"></i>
+                    <div class="list-content">
+                      Đạt được điểm A trong môn học.
+                    </div>
+                  </li>
+                  <li>
+                    <i class="fa fa-check-circle"></i>
+                    <div class="list-content">
+                      Đảm bảo sự tham gia tích cực của tất cả các thành viên, phát huy thế mạnh bản thân để có kết
+                      quả tốt nhất.
+                    </div>
+                  </li>
+                  <li>
+                    <i class="fa fa-check-circle"></i>
+                    <div class="list-content">
+                      Xây dựng tinh thần trách nhiệm, kỷ luật và làm việc giữa các thành viên.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="team-document-section">
+                <h5 class="section-heading">Nhiệm vụ:</h5>
+                <ul class="feature-list document-list">
+                  <li>
+                    <i class="fa fa-check-circle"></i>
+                    <div class="list-content">
+                      Cùng nhau làm những bài thường kỳ, báo cáo giữa kì.
+                    </div>
+                  </li>
+                  <li>
+                    <i class="fa fa-check-circle"></i>
+                    <div class="list-content">
+                      Phân công công việc cụ thể cho từng thành viên, đảm bảo mọi người đều có việc và có trách
+                      nhiệm với công việc.
+                    </div>
+                  </li>
+                  <li>
+                    <i class="fa fa-check-circle"></i>
+                    <div class="list-content">
+                      Chuẩn bị bài thuyết trình, báo cáo nhóm theo yêu cầu giảng viên.
+                    </div>
+                  </li>
+                  <li>
+                    <i class="fa fa-check-circle"></i>
+                    <div class="list-content">
+                      Đánh giá hiệu quả làm việc nhóm và đề xuất phương án cải thiện nếu cần.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="team-stats mt-5"></div>
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <div class="stat-item text-center">
+                      <h4>Nhóm 7 - Toán Tin</h4>
+                      <p>Tên nhóm</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="stat-item text-center">
+                      <h4>9</h4>
+                      <p>Số lượng thành viên</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="stat-item text-center">
+                      <h4>15/03/2025 - 19/04/2025</h4>
+                      <p>Thời gian hoạt động</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Team Section end -->
+
+    <!-- Footer Section -->
+    <footer class="footer__section">
+      <svg class="footer__wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100">
+        <path
+          fill="#ffffff"
+          fill-opacity="1"
+          d="M0,32L60,37.3C120,43,240,53,360,48C480,43,600,21,720,21.3C840,21,960,43,1080,53.3C1200,64,1320,64,1380,64L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+      </svg>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-widget">
+              <h5>Về Căn Tin IUH</h5>
+              <div class="about-footer">
+                <p>
+                  Căn tin Trường Đại học Công nghiệp TP.HCM là điểm đến ẩm thực lý
+                  tưởng với không gian hiện đại, thực đơn phong phú và chất lượng
+                  phục vụ chuyên nghiệp.
+                </p>
+              </div>
+              <div class="footer-social">
+              		<a href="#"><i class="fa-brands fa-facebook"></i></a>
+							<a href="#"><i class="fa-brands fa-tiktok"></i></a>
+							<a href="mailto:vietbac.coding@gmail.com"><i class="fa-solid fa-envelope"></i
+							></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-widget">
+              <h5>Thông Tin Liên Hệ</h5>
+              <ul class="footer-info">
+                <li>
+                  <i class="fa fa-map-marker"></i>
+                  <div>
+                    <span
+                      >12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM</span
+                    >
+                  </div>
+                </li>
+                <li>
+                  <i class="fa fa-phone"></i>
+                  <div>
+                    <span>(028) 3840 4462</span>
+                    <span>(028) 3849 0901</span>
+                  </div>
+                </li>
+                <li>
+                  <i class="fa fa-envelope"></i>
+                  <div>
+                    <span>cantin@iuh.edu.vn</span>
+                    <span>dichvu@iuh.edu.vn</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="footer-location-map">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.858544068298!2d106.68522557587518!3d10.820074758345977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528e5496d03cf%3A0xa5b8e7395ec636b9!2zMTIgTmd1eeG7hW4gVsSDbiBC4bqjbywgUGjGsOG7nW5nIDQsIEfDsiBW4bqlcCwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1685641253079!5m2!1svi!2s"
+                  width="100%"
+                  height="100%"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="footer-widget">
+              <h5>Giờ Hoạt Động</h5>
+              <div>
+                <p class="footer-campus">Cơ sở chính:</p>
+                <div class="footer-hours">
+                  <span>Thứ 2 - Thứ 6</span>
+                  <span>6:30 - 19:00</span>
+                </div>
+                <div class="footer-hours">
+                  <span>Thứ 7</span>
+                  <span>7:00 - 18:00</span>
+                </div>
+                <div class="footer-hours">
+                  <span>Chủ nhật</span>
+                  <span>7:00 - 17:30</span>
+                </div>
+
+                <p class="footer-campus">Cơ sở Phạm Văn Chiêu:</p>
+                <div class="footer-hours">
+                  <span>Thứ 2 - Thứ 6</span>
+                  <span>6:30 - 17:30</span>
+                </div>
+                <div class="footer-hours">
+                  <span>Thứ 7</span>
+                  <span>7:00 - 16:00</span>
+                </div>
+              </div>
+
+              <h5 style="margin-top: 30px">Đăng ký nhận thông tin</h5>
+              <p>Nhận thông tin về thực đơn mới và khuyến mãi</p>
+              <form class="newsletter-form">
+                <input type="email" placeholder="Email của bạn" />
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer__copyright">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="footer__copyright__text text-center">
+                <p>
+                  ©
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  Bản quyền thuộc về Nhóm 7 - Toán Tin | Toan tính thông minh, dẫn
+                  lối thành công
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Section end -->
+
+    <!-- Search Begin -->
+    <div class="search-model">
+      <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch">+</div>
+        <form class="search-model-form">
+          <input type="text" id="search-input" placeholder="Tìm kiếm tại đây....." />
+        </form>
+      </div>
+    </div>
+    <!-- Search End -->
+
+    <!-- Nút cuộn lên đầu trang -->
+    <button class="scroll-top-btn" id="scrollTopBtn">
+      <div class="scroll-top-inner">
+        <i class="fa fa-angle-up"></i>
+        <span class="ripple-circle"></span>
+        <span class="ripple-circle"></span>
+      </div>
+    </button>
+
+    <!-- CDN Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fresco/1.3.0/js/fresco.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
