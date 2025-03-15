@@ -1,0 +1,36 @@
+# robots.txt for Căn Tin IUH
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /about.html
+Allow: /gallery.html
+Allow: /contact.html
+
+# Các thư mục tài nguyên không cần thiết cho việc index
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /favicon/
+
+# Cho phép tất cả hình ảnh được crawl
+Allow: /img/
+
+# Chặn các tệp dự phòng, tạm thời hoặc trùng lặp
+Disallow: /*.bak$
+Disallow: /*.tmp$
+Disallow: /temp/
+
+# Hướng dẫn tệp sitemap
+Sitemap: https://ctiuh.live/sitemap.xml
+
+# Tốc độ thu thập dữ liệu
+Crawl-delay: 10
+
+# Các quy tắc dành riêng cho Google
+User-agent: Googlebot
+Allow: /
+
+# Các quy tắc dành riêng cho Bing
+User-agent: Bingbot
+Allow: /
