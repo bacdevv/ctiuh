@@ -72,7 +72,7 @@
 		<link rel="canonical" href="https://ctiuh.live/index.html" />
 		<meta
 			http-equiv="Content-Security-Policy"
-			content="default-src 'self'; script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://ctiuh.live https://maps.gstatic.com https://*.googleusercontent.com; frame-src https://www.google.com; connect-src 'self';" />
+			content="default-src 'self'; script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://ctiuh.live https://maps.gstatic.com https://*.googleusercontent.com https://www.google-analytics.com; frame-src https://www.google.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com;" />
 
             <!-- Google tag (gtag.js) -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=G-RX169NJ84K"></script>
@@ -81,7 +81,26 @@
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-RX169NJ84K');
+            // Cấu hình nâng cao cho GA4 với các tùy chọn thu thập dữ liệu SEO
+            gtag('config', 'G-RX169NJ84K', {
+              'send_page_view': true,
+              'page_title': document.title,
+              'page_location': window.location.href,
+              'cookie_domain': 'ctiuh.live',
+              'cookie_flags': 'SameSite=None;Secure',
+              'allow_google_signals': true,
+              'allow_ad_personalization_signals': true
+            });
+            
+            // Bật thu thập dữ liệu người dùng cho SEO
+            gtag('set', 'user_properties', {
+              'page_type': 'homepage',
+              'user_agent': navigator.userAgent,
+              'viewport_size': `${window.innerWidth}x${window.innerHeight}`
+            });
+            
+            // Theo dõi hiệu suất trang
+            gtag('set', 'developer_id.dMDhkMT', true);
             </script>
 	</head>
 	<body>
