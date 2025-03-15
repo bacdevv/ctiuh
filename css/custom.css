@@ -142,7 +142,7 @@ a {
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index: 999;
+	z-index: 9999;
 	padding: 20px 0;
 	transition: var(--transition-medium);
 	background-color: rgba(255, 255, 255, 0.95);
@@ -695,9 +695,9 @@ a {
 }
 
 .footer-social a {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
 	width: 40px;
 	height: 40px;
 	background-color: rgba(255, 255, 255, 0.1);
@@ -2583,5 +2583,342 @@ body {
 	.contact__social a {
 		padding: 5px;
 		display: inline-block;
+	}
+}
+
+/* Enhanced Header Switches - Neumorphic Style Design */
+.header__switches {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 15px;
+}
+
+.header__switches a {
+	position: relative;
+	width: 44px;
+	height: 44px;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--secondary-color);
+	background: linear-gradient(145deg, #ffffff, #f0f0f0);
+	border-radius: 50%;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.07), -5px -5px 10px rgba(255, 255, 255, 0.8);
+	transition: all 0.3s ease;
+	overflow: hidden;
+}
+
+.header__switches a:hover {
+	color: var(--primary-color);
+	transform: translateY(-3px);
+	box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.1), -7px -7px 15px rgba(255, 255, 255, 0.8);
+}
+
+.header__switches a:active {
+	box-shadow: inset 3px 3px 7px rgba(0, 0, 0, 0.1), inset -3px -3px 7px rgba(255, 255, 255, 0.8);
+	transform: translateY(0px);
+}
+
+.header__switches a i {
+	font-size: 18px;
+	transition: all 0.3s ease;
+}
+
+.header__switches a:hover i {
+	transform: scale(1.1);
+}
+
+.header__switches a::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 5px;
+	height: 5px;
+	background: rgba(141, 185, 82, 0.3);
+	opacity: 0;
+	border-radius: 100%;
+	transform: scale(1) translate(-50%, -50%);
+	transform-origin: 50% 50%;
+}
+
+.header__switches a:active::after {
+	animation: switch-ripple 0.6s ease-out;
+}
+
+@keyframes switch-ripple {
+	0% {
+		opacity: 1;
+		transform: scale(0) translate(-50%, -50%);
+	}
+	80% {
+		opacity: 0.3;
+	}
+	100% {
+		opacity: 0;
+		transform: scale(15) translate(-50%, -50%);
+	}
+}
+
+/* Special styling for nav-switch */
+.header__switches a.nav-switch {
+	background: linear-gradient(145deg, #95c256, #7ea248);
+	color: white;
+	display: none; /* Hide by default on desktop */
+}
+
+.header__switches a.nav-switch:hover {
+	background: linear-gradient(145deg, #9bcb59, #87ac4c);
+}
+
+/* ---- Responsive Header UI for Tablet and Mobile ---- */
+@media (max-width: 991px) {
+	.modern-header {
+		padding: 10px 0;
+		background-color: rgba(255, 255, 255, 0.98);
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	}
+
+	.modern-header .container-fluid {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.site-logo img {
+		height: 38px;
+	}
+
+	.main__menu {
+		padding-top: 8px;
+	}
+}
+
+@media (max-width: 767px) {
+	.modern-header {
+		position: sticky;
+		top: 0;
+	}
+
+	.header__social {
+		margin-bottom: 5px;
+	}
+
+	.row.header-row {
+		flex-wrap: nowrap;
+		align-items: center;
+	}
+
+	.site-logo {
+		text-align: center;
+	}
+
+	.site-logo img {
+		height: 34px;
+	}
+}
+
+@media (max-width: 576px) {
+	.modern-header {
+		padding: 8px 0;
+	}
+
+	/* Mobile Header Layout with 3 sections (menu btn, logo, search) */
+	.modern-header .container-fluid .row {
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		gap: 10px;
+		align-items: center;
+	}
+
+	.header__social {
+		display: none;
+	}
+
+	.site-logo {
+		text-align: center;
+		order: 0;
+		margin: 0;
+	}
+
+	.site-logo img {
+		height: 32px;
+	}
+
+	/* Switch position of menu and search buttons */
+	.header__switches {
+		display: flex;
+		justify-content: flex-end;
+		padding: 0;
+		margin: 0;
+		gap: 10px;
+	}
+
+	.header__switches a {
+		width: 38px;
+		height: 38px;
+		margin: 0;
+	}
+
+	.header__switches a i {
+		font-size: 16px;
+	}
+
+	/* SlickNav mobile menu enhancements */
+	.slicknav_menu {
+		background: #ffffff;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		padding: 15px;
+		z-index: 9999;
+	}
+
+	.slicknav_nav {
+		border-radius: var(--border-radius-medium);
+		background: white;
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+		padding: 10px 0;
+		max-height: 80vh;
+		overflow-y: auto;
+	}
+
+	.slicknav_nav .slicknav_row,
+	.slicknav_nav a {
+		margin: 0;
+		padding: 12px 15px;
+		color: var(--text-color);
+		font-weight: 600;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+		transition: all 0.2s ease;
+	}
+
+	.slicknav_nav a:hover {
+		background: rgba(141, 185, 82, 0.1);
+		color: var(--primary-color);
+		border-radius: 0;
+	}
+
+	.slicknav_nav .slicknav_row:hover {
+		background: rgba(141, 185, 82, 0.1);
+		border-radius: 0;
+	}
+
+	.slicknav_nav .slicknav_item a {
+		border-bottom: none;
+		padding: 0;
+	}
+
+	.slicknav_arrow {
+		color: var(--primary-color);
+		margin-left: 5px;
+	}
+
+	/* Mobile Menu Animation */
+	.slicknav_menu .slicknav_icon-bar {
+		background-color: var(--text-color);
+		transition: all 0.3s ease;
+	}
+
+	.slicknav_open .slicknav_icon-bar:nth-child(1) {
+		transform: rotate(45deg) translate(5px, 5px);
+	}
+
+	.slicknav_open .slicknav_icon-bar:nth-child(2) {
+		opacity: 0;
+	}
+
+	.slicknav_open .slicknav_icon-bar:nth-child(3) {
+		transform: rotate(-45deg) translate(5px, -5px);
+	}
+
+	/* Fix search modal for mobile */
+	.search-model-form {
+		padding: 0 20px;
+	}
+
+	.search-model-form input {
+		font-size: 22px;
+	}
+
+	.search-close-switch {
+		width: 40px;
+		height: 40px;
+		font-size: 22px;
+		top: 20px;
+		right: 20px;
+	}
+
+	.header__switches a.nav-switch {
+		display: flex; /* Show on mobile */
+	}
+}
+
+/* Fix for the original header styling */
+.header__social a {
+	margin-right: 15px; /* Add proper spacing between social icons */
+}
+
+.header__switches a {
+	margin-right: 0; /* Keep switches without right margin */
+}
+
+/* SlickNav Mobile Menu Fix - Prevent overlap with header */
+.slicknav_menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 9998; /* Lower than header z-index */
+	background: transparent;
+	padding: 0;
+	pointer-events: none; /* Allow clicks to pass through the container */
+}
+
+/* Only the nav element should be clickable */
+.slicknav_nav {
+	margin-top: 60px; /* Space for the header */
+	pointer-events: auto;
+	border-radius: var(--border-radius-medium);
+	background: white;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+	padding: 10px 0;
+	max-height: 80vh;
+	overflow-y: auto;
+	margin-left: 15px;
+	margin-right: 15px;
+	opacity: 0.98;
+}
+
+/* Ensure the header stays above the menu */
+.modern-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 9999;
+	padding: 20px 0;
+	transition: var(--transition-medium);
+	background-color: rgba(255, 255, 255, 0.95);
+	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+}
+
+/* Fix for the slicknav_btn which is the menu toggle */
+.slicknav_btn {
+	position: absolute;
+	top: -50px; /* Hide it as we're using our own toggle */
+	left: -9999px;
+	display: none !important; /* Completely hide the default button */
+}
+
+/* Make our nav-switch work properly */
+.header__switches a.nav-switch {
+	position: relative;
+	z-index: 10000; /* Higher than both the header and SlickNav */
+}
+
+@media (max-width: 576px) {
+	/* Adjust spacing for mobile */
+	.slicknav_nav {
+		margin-top: 78px;
 	}
 }

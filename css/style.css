@@ -343,7 +343,6 @@ text-white a {
 .header__switches a {
 	display: inline-block;
 	color: #222222;
-	padding-top: 5px;
 	margin-right: 15px;
 	font-size: 16px;
 }
@@ -361,8 +360,6 @@ text-white a {
 	border-radius: 50%;
 	background: #e1e1e1;
 	text-align: center;
-	padding-top: 9px;
-	margin-top: -9px;
 }
 
 @media (max-width: 576px) {
