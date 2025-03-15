@@ -1,0 +1,30 @@
+:root {
+	--primary-color: #8db952;
+	--primary-dark: #7aa745;
+	--secondary-color: #333333;
+	--text-color: #333;
+	--text-light: #7e858b;
+	--gray-light: #f8f8f8;
+	--gray-medium: #e1e1e1;
+	--white: #ffffff;
+	--shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+	--shadow-strong: 0 15px 35px rgba(0, 0, 0, 0.1);
+	--transition-fast: all 0.3s ease;
+	--transition-medium: all 0.5s ease;
+	--transition-slow: all 0.8s ease;
+	--border-radius-small: 4px;
+	--border-radius-medium: 8px;
+	--border-radius-large: 16px;
+}
+
+/* Các rule dùng chung */
+a {
+	text-decoration: none;
+	transition: var(--transition-fast);
+}
+
+img {
+	max-width: 100%;
+}
+
+/* ...existing code chung khác nếu cần... */

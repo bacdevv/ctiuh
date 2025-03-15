@@ -1,8 +1,4 @@
-/* ===================================
-   Modern UI Enhancements for Boto
-   =================================== */
-
-/* ---- Base Elements and Typography ---- */
+@import url("common.css");
 :root {
 	--primary-color: #8db952;
 	--primary-dark: #7aa745;
@@ -306,7 +302,7 @@ a {
 .hero__section {
 	/* Cập nhật padding-top từ 100px thành 140px để tạo khoảng cách xa header hơn */
 	padding-top: 140px;
-	margin-bottom: 100px;
+	margin-bottom: 0; /* giảm khoảng trắng bên dưới slider */
 	overflow: hidden;
 }
 
@@ -424,7 +420,7 @@ a {
 	background: #f1f1f1;
 	color: #333;
 	opacity: 0.8;
-	transform: translate(-50%, 40px);
+	transform: translate(-50%, 60px); /* Changed from 40px to 60px */
 	transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	border-radius: 12px;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -499,6 +495,9 @@ a {
 	.slide-text {
 		font-size: 13px;
 		line-height: 1.4;
+	}
+	.hero-slider {
+		padding: 20px 0;
 	}
 }
 
@@ -1231,14 +1230,8 @@ a {
 	bottom: -60px;
 	width: 50px;
 	height: 50px;
-	background: linear-gradient(
-		135deg,
-		var(--primary-color) 0%,
-		var(--primary-dark) 100%
-	); /* New gradient */
-	border: 2px solid var(--primary-dark); /* New border */
-	box-shadow: 0 4px 20px rgba(141, 185, 82, 0.4); /* Updated shadow */
-	transition: all 0.4s ease; /* Slightly faster transitions */
+	background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+	border: none;
 	color: white;
 	border-radius: 50%;
 	display: flex;
@@ -1247,19 +1240,21 @@ a {
 	cursor: pointer;
 	box-shadow: 0 4px 16px rgba(141, 185, 82, 0.3);
 	opacity: 0;
-	border: none;
 	z-index: 999;
 	overflow: hidden;
-	outline: none; /* Thêm để loại bỏ đường viền khi focus */
-}
-
-.scroll-top-btn:focus {
-	outline: none; /* Đảm bảo không có đường viền khi focus */
+	transition: all 0.4s ease;
+	outline: none;
 }
 
 .scroll-top-btn.show {
 	bottom: 25px;
 	opacity: 1;
+}
+
+.scroll-top-btn:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 6px 30px rgba(141, 185, 82, 0.6);
+	background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
 }
 
 /* Update hover state for a smoother lift effect */
@@ -2035,8 +2030,6 @@ commitment-divider {
 	background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
 	opacity: 0;
 	z-index: -1;
-	transform: translateY(100%);
-	transition: all 0.3s ease;
 }
 
 .gallery-filter li:hover {
@@ -2468,4 +2461,86 @@ commitment-divider {
 	.volume-slider {
 		width: 40px;
 	}
+}
+
+@media (max-width: 576px) {
+	/* Rebuild slider UI/UX for mobile */
+	.hero-slider {
+		/* ...existing code... */
+		padding: 20px 0; /* reduced padding for mobile */
+	}
+	.slide-item img {
+		/* ...existing code... */
+		height: 250px; /* smaller height for mobile */
+		object-fit: cover;
+		transition: none; /* snappier image response on mobile */
+	}
+	.slide-desc {
+		/* ...existing code... */
+		padding: 15px;
+		bottom: 15px; /* adjust caption position */
+		font-size: 14px; /* slightly reduced font size */
+	}
+	.hero-slider-nav {
+		/* reposition navigation for mobile */
+		top: auto;
+		bottom: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: auto;
+	}
+	.hero-slider-nav button {
+		width: 40px;
+		height: 40px;
+		font-size: 18px;
+		background: rgba(0, 0, 0, 0.4);
+		border-radius: 50%;
+	}
+	.hero-text-slider h2 {
+		font-size: 24px; /* adjust headline font size on mobile */
+	}
+}
+
+/* Make SlickNav menu overlay to avoid shifting slider */
+.slicknav_menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10000;
+	/* ...existing code... */
+}
+
+/* Custom Scrollbar Styles */
+html {
+	scrollbar-width: thin; /* For Firefox */
+	scrollbar-color: #888 #f1f1f1; /* thumb and track */
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #888;
+	border-radius: 4px;
+	border: 2px solid #f1f1f1;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: #555;
+}
+
+/* For IE/Edge fallback */
+body {
+	-ms-overflow-style: scrollbar;
+}
+
+/* Group common transition properties */
+.button,
+.site-btn,
+.scroll-top-btn {
+	transition: all 0.3s ease;
 }

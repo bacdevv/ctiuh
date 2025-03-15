@@ -185,21 +185,19 @@ const debounce = (func, wait) => {
 	};
 };
 
-// Thêm easing function cho hiệu ứng mượt mà
-jQuery.easing.easeInOutExpo = function (x, t, b, c, d) {
-	if (t == 0) return b;
-	if (t == d) return b + c;
-	if ((t /= d / 2) < 1) return (c / 2) * Math.pow(2, 10 * (t - 1)) + b;
-	return (c / 2) * (-Math.pow(2, -10 * --t) + 2) + b;
-};
+// Optimized easing function with arrow syntax
+const easeInOutExpo = (t, b, c, d) =>
+	t < d / 2
+		? (c / 2) * Math.pow(2, 10 * (t / d - 1)) + b
+		: (c / 2) * (-Math.pow(2, -10 * (t / d - 1)) + 2) + b;
 
 (function ($) {
 	/*------------------
 		Background Set
 	--------------------*/
 	$(".set-bg").each(function () {
-		var bg = $(this).data("setbg");
-		$(this).css("background-image", "url(" + bg + ")");
+		const bg = $(this).data("setbg");
+		$(this).css("background-image", `url(${bg})`);
 	});
 
 	/*------------------
@@ -214,6 +212,12 @@ jQuery.easing.easeInOutExpo = function (x, t, b, c, d) {
 		appendTo: ".main__menu",
 		openedSymbol: '<i class="fa fa-angle-up"></i>',
 		closedSymbol: '<i class="fa fa-angle-right"></i>',
+	});
+
+	$(document).on("click", function (e) {
+		if ($(e.target).closest(".slicknav_menu, .nav-switch").length === 0) {
+			$(".nav__menu").slicknav("close");
+		}
 	});
 
 	/*---------------
@@ -369,7 +373,7 @@ jQuery.easing.easeInOutExpo = function (x, t, b, c, d) {
 		$("html, body").animate(
 			{ scrollTop: 0 },
 			{
-				duration: 800,
+				duration: 300, // Reduced duration for immediate yet smooth scroll
 				easing: "easeInOutExpo",
 				complete: function () {
 					$("body").removeClass("scrolling-to-top");
