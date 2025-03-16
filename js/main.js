@@ -66,10 +66,11 @@ const initHeader = () => {
 	$window
 		.on(
 			"scroll",
-			debounce(() => {
+			// Loại bỏ debounce để header phản ứng ngay lập tức khi cuộn
+			() => {
 				const scrolled = $window.scrollTop() > 100;
 				$header.toggleClass("scrolled", scrolled).toggleClass("transparent", !scrolled);
-			}, 50)
+			}
 		)
 		.trigger("scroll");
 };
@@ -235,7 +236,8 @@ const initSliders = () => {
 		// Handle header appearance based on scroll position
 		$window.on(
 			"scroll",
-			debounce(function () {
+			// Loại bỏ debounce cho phản ứng ngay lập tức
+			function () {
 				if ($window.width() <= 991) {
 					const headerHeight = $(".modern-header").outerHeight();
 					const heroSectionHeight = $(".hero__section").outerHeight();
@@ -243,7 +245,7 @@ const initSliders = () => {
 
 					$(".modern-header").toggleClass("scrolled", scrolledPastHero);
 				}
-			}, 50)
+			}
 		);
 
 		// Navigation buttons for hero slider
