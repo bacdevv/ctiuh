@@ -246,13 +246,39 @@ const easeInOutExpo = (t, b, c, d) =>
 		autoplaySpeed: 5000,
 		responsive: [
 			{
+				breakpoint: 991,
+				settings: {
+					centerMode: false,
+					variableWidth: false,
+					adaptiveHeight: true,
+					fade: true,
+					cssEase: "cubic-bezier(0.7, 0, 0.3, 1)",
+				},
+			},
+			{
 				breakpoint: 480,
 				settings: {
-					slidesToShow: 1,
-					slidesToScroll: 1,
+					centerMode: false,
+					variableWidth: false,
+					adaptiveHeight: true,
+					fade: true,
 				},
 			},
 		],
+	});
+
+	// Add scroll listener to change header appearance based on slider visibility
+	$(window).on("scroll", function () {
+		const headerHeight = $(".modern-header").outerHeight();
+		const heroSectionHeight = $(".hero__section").outerHeight();
+
+		if ($(window).width() <= 991) {
+			if ($(window).scrollTop() > heroSectionHeight - headerHeight) {
+				$(".modern-header").addClass("scrolled");
+			} else {
+				$(".modern-header").removeClass("scrolled");
+			}
+		}
 	});
 
 	var hero_slider = $(".hero-slider");
