@@ -196,6 +196,19 @@ a {
 	box-shadow: var(--shadow-soft);
 }
 
+/* Special styling for search-switch to match nav-switch */
+.header__switches a.search-switch {
+	background: linear-gradient(145deg, #95c256, #7ea248);
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.header__switches a.search-switch:hover {
+	background: linear-gradient(145deg, #9bcb59, #87ac4c);
+}
+
 /* ---- Modern Navigation ---- */
 .main__menu {
 	padding-top: 25px;
@@ -3025,10 +3038,6 @@ body {
 	.header__switches a {
 		color: #fff;
 		text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-	}
-
-	.site-logo img {
-		filter: brightness(0) invert(1);
 	}
 
 	.modern-header.scrolled .site-logo img {
