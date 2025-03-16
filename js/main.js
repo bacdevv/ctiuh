@@ -74,8 +74,11 @@ const initHeader = () => {
 		.trigger("scroll");
 };
 
+// Optimized initProgressBars function
 const initProgressBars = () => {
-	$(".progress-bar-style").each(function () {
+	const $progressBars = $(".progress-bar-style");
+
+	$progressBars.each(function () {
 		const progress = $(this).data("progress");
 		const $bar = $(this).find(".bar-inner");
 		const $heading = $(this).siblings("h6");
@@ -83,19 +86,24 @@ const initProgressBars = () => {
 		if (!$heading.find("span").length) {
 			$heading.append(`<span>${progress}%</span>`);
 		}
-
-		$window.on(
-			"scroll",
-			debounce(() => {
-				const viewportBottom = $window.scrollTop() + $window.height();
-				const elementBottom = $(this).offset().top + $(this).outerHeight();
-
-				if (viewportBottom > elementBottom) {
-					$bar.css("width", `${progress}%`);
-				}
-			}, 50)
-		);
+		// Cache progress data for later use
+		$(this).data("progressBarData", { progress, $bar });
 	});
+
+	// Single debounced scroll handler that updates all progress bars
+	const updateProgressBars = debounce(() => {
+		const viewportBottom = $window.scrollTop() + $window.height();
+		$progressBars.each(function () {
+			const data = $(this).data("progressBarData");
+			const elementBottom = $(this).offset().top + $(this).outerHeight();
+			if (viewportBottom > elementBottom) {
+				data.$bar.css("width", data.progress + "%");
+			}
+		});
+	}, 50);
+
+	$window.on("scroll", updateProgressBars);
+	updateProgressBars();
 };
 
 const initHoverEffects = () => {
@@ -142,71 +150,48 @@ const initVideoControls = () => {
 	const muteBtn = document.querySelector(".mute-btn");
 	const volumeSlider = document.querySelector(".volume-slider");
 	const progressBar = document.querySelector(".progress");
-	const progressContainer = document.querySelector(".progress-bar");
 
-	// Play and pause video
-	playPauseBtn?.addEventListener("click", () => {
-		if (video.paused) {
-			video.play();
-			playPauseBtn.innerHTML = '<i class="fa fa-pause"></i>';
-		} else {
+	if (!playPauseBtn || !muteBtn || !volumeSlider || !progressBar) return;
+
+	let isPlaying = false;
+	let isMuted = false;
+
+	// Play/Pause button functionality
+	playPauseBtn.addEventListener("click", () => {
+		if (isPlaying) {
 			video.pause();
-			playPauseBtn.innerHTML = '<i class="fa fa-play"></i>';
-		}
-	});
-
-	// Mute/unmute video
-	muteBtn?.addEventListener("click", () => {
-		video.muted = !video.muted;
-		muteBtn.innerHTML = video.muted
-			? '<i class="fa fa-volume-off"></i>'
-			: '<i class="fa fa-volume-up"></i>';
-	});
-
-	// Adjust video volume
-	volumeSlider?.addEventListener("input", () => {
-		video.volume = volumeSlider.value;
-		video.muted = video.volume === 0;
-		muteBtn.innerHTML = video.muted
-			? '<i class="fa fa-volume-off"></i>'
-			: '<i class="fa fa-volume-up"></i>';
-	});
-
-	// Update progress bar as video plays
-	video.addEventListener("timeupdate", () => {
-		if (progressBar) {
-			const percent = (video.currentTime / video.duration) * 100;
-			progressBar.style.width = percent + "%";
-		}
-	});
-
-	// Allow clicking on progress container to seek
-	progressContainer?.addEventListener("click", (e) => {
-		const rect = progressContainer.getBoundingClientRect();
-		const clickX = e.clientX - rect.left;
-		const newTime = (clickX / rect.width) * video.duration;
-		video.currentTime = newTime;
-	});
-
-	// Continue playing when video is clicked
-	video.addEventListener("click", (e) => {
-		e.preventDefault();
-		e.stopPropagation();
-		video.play();
-	});
-
-	// Auto-play video when scrolled into view
-	const checkVideoVisibility = () => {
-		const rect = video.getBoundingClientRect();
-		if (rect.top < window.innerHeight && rect.bottom > 0 && video.paused) {
+			playPauseBtn.textContent = "Play";
+		} else {
 			video.play();
+			playPauseBtn.textContent = "Pause";
 		}
-	};
+		isPlaying = !isPlaying;
+	});
 
-	window.addEventListener("scroll", debounce(checkVideoVisibility, 100));
+	// Mute button functionality
+	muteBtn.addEventListener("click", () => {
+		if (isMuted) {
+			video.muted = false;
+			muteBtn.textContent = "Mute";
+		} else {
+			video.muted = true;
+			muteBtn.textContent = "Unmute";
+		}
+		isMuted = !isMuted;
+	});
+
+	// Volume slider functionality
+	volumeSlider.addEventListener("input", () => {
+		video.volume = volumeSlider.value;
+	});
+
+	// Progress bar functionality
+	video.addEventListener("timeupdate", () => {
+		const percentage = (video.currentTime / video.duration) * 100;
+		progressBar.style.width = `${percentage}%`;
+	});
 };
 
-// Initialize all sliders
 const initSliders = () => {
 	// Hero slider initialization
 	const hero_slider = $(".hero-slider");

@@ -458,12 +458,13 @@
 							</ul>
 							<div class="footer-location-map">
 								<iframe
-									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.858544068298!2d106.68522557587518!3d10.820074758345977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528e5496d03cf%3A0xa5b8e7395ec636b9!2zMTIgTmd1eeG7hW4gVsSDbiBC4bqjbywgUGjGsOG7nW5nIDQsIEfDsiBW4bqlcCwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1685641253079!5m2!1svi!2s"
+									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.7242381139918!2d106.68427047472518!3d10.822158889329383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2sIndustrial%20University%20of%20Ho%20Chi%20Minh%20City!5e1!3m2!1sen!2s!4v1742025757255!5m2!1sen!2s"vi!2svn"
 									width="100%"
 									height="100%"
 									style="border: 0"
 									allowfullscreen=""
-									loading="lazy"></iframe>
+									loading="lazy"
+									referrerpolicy="no-referrer-when-downgrade"></iframe>
 							</div>
 						</div>
 					</div>
@@ -602,8 +603,6 @@
 					var filterValue = $(this).attr("data-filter");
 					var filterName = $(this).find("span").text().trim();
 
-					console.log("Applying filter:", filterValue); // Debug logging
-
 					// Hiệu ứng mờ trước khi filter
 					$(".gallery__item").addClass("dimmed-item");
 
@@ -619,7 +618,6 @@
 
 							// Cập nhật bộ đếm và kiểm tra có item nào visible không
 							var visibleItemsCount = $grid.isotope("getFilteredItemElements").length;
-							console.log("Visible items count:", visibleItemsCount); // Debug logging
 
 							updateCounter(filterName, visibleItemsCount);
 
