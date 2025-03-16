@@ -195,7 +195,7 @@
 								href="img/gallery/1.jpg"
 								data-fresco-group="gallery"
 								data-fresco-caption="Khu vực chính của căn tin cơ sở Nguyễn Văn Bảo">
-								<img src="img/gallery/1.jpg" alt="Không gian căn tin" />
+								<img src="img/gallery/1.jpg" alt="Không gian căn tin" loading="lazy" />
 								<div class="gallery__item-info">
 									<h4>Không gian rộng rãi</h4>
 									<p>Khu vực chính</p>
@@ -208,7 +208,7 @@
 								href="img/gallery/2.jpg"
 								data-fresco-group="gallery"
 								data-fresco-caption="Đa dạng món ăn hàng ngày">
-								<img src="img/gallery/2.jpg" alt="Món ăn đa dạng" />
+								<img src="img/gallery/2.jpg" alt="Món ăn đa dạng" loading="lazy" />
 								<div class="gallery__item-info">
 									<h4>Món ăn đa dạng</h4>
 									<p>Thực đơn hàng ngày</p>
@@ -221,7 +221,7 @@
 								href="img/gallery/3.jpg"
 								data-fresco-group="gallery"
 								data-fresco-caption="Không gian ăn uống thoáng đãng, hiện đại">
-								<img src="img/gallery/3.jpg" alt="Không gian hiện đại" />
+								<img src="img/gallery/3.jpg" alt="Không gian hiện đại" loading="lazy" />
 								<div class="gallery__item-info">
 									<h4>Thiết kế hiện đại</h4>
 									<p>Không gian thoáng đãng</p>
@@ -234,7 +234,7 @@
 								href="img/gallery/4.jpg"
 								data-fresco-group="gallery"
 								data-fresco-caption="Các loại đồ uống tươi ngon, phong phú">
-								<img src="img/gallery/4.jpg" alt="Đồ uống phong phú" />
+								<img src="img/gallery/4.jpg" alt="Đồ uống phong phú" loading="lazy" />
 								<div class="gallery__item-info">
 									<h4>Đồ uống đa dạng</h4>
 									<p>Trà sữa, cà phê, sinh tố</p>
@@ -247,7 +247,7 @@
 								href="img/gallery/5.jpg"
 								data-fresco-group="gallery"
 								data-fresco-caption="Hoạt động khuyến mãi đặc biệt">
-								<img src="img/gallery/5.jpg" alt="Sự kiện khuyến mãi" />
+								<img src="img/gallery/5.jpg" alt="Sự kiện khuyến mãi" loading="lazy" />
 								<div class="gallery__item-info">
 									<h4>Khuyến mãi đặc biệt</h4>
 									<p>Các chương trình ưu đãi</p>
@@ -260,7 +260,7 @@
 								href="img/gallery/6.jpg"
 								data-fresco-group="gallery"
 								data-fresco-caption="Các món Căn tin CS2">
-								<img src="img/gallery/6.jpg" alt="Căn tin CS2" />
+								<img src="img/gallery/6.jpg" alt="Căn tin CS2" loading="lazy" />
 								<div class="gallery__item-info">
 									<h4>Căn tin CS2</h4>
 									<p>Cơ sở phạm văn chiêu</p>
@@ -273,7 +273,7 @@
 								href="img/gallery/7.jpg"
 								data-fresco-group="gallery"
 								data-fresco-caption="Khu vực dành cho sinh viên học nhóm">
-								<img src="img/gallery/7.jpg" alt="Khu vực học nhóm" />
+								<img src="img/gallery/7.jpg" alt="Khu vực học nhóm" loading="lazy" />
 								<div class="gallery__item-info">
 									<h4>Không gian học tập</h4>
 									<p>Khu vực học nhóm</p>
@@ -286,7 +286,7 @@
 								href="img/gallery/8.jpg"
 								data-fresco-group="gallery"
 								data-fresco-caption="Giao lưu văn nghệ trong căn tin">
-								<img src="img/gallery/8.jpg" alt="Quầy đồ ăn" />
+								<img src="img/gallery/8.jpg" alt="Quầy đồ ăn" loading="lazy" />
 								<div class="gallery__item-info">
 									<h4>Quầy đồ ăn</h4>
 									<p>Đồ ăn phong phú</p>
@@ -561,112 +561,102 @@
 			});
 		</script>
 		<script>
-			$(window).on("load", function () {
+			// Tối ưu hóa isotope gallery
+			$(window).on('load', function () {
 				// Khai báo các biến
 				var $grid = $(".gallery-items");
 				var $noItemsMessage = $(".no-items-message");
 				var $categoryName = $(".category-name");
 				var $visibleCount = $("#visible-count");
+				var isotopeInitialized = false;
 
-				// Khởi tạo Isotope với hiệu ứng mượt mà
-				$grid.isotope({
-					itemSelector: ".mix",
-					layoutMode: "fitRows",
-					transitionDuration: "0.6s",
-					stagger: 30,
-					hiddenStyle: {
-						opacity: 0,
-						transform: "scale(0.8)",
-					},
-					visibleStyle: {
-						opacity: 1,
-						transform: "scale(1)",
-					},
-				});
-
-				// Cập nhật số lượng ảnh ban đầu
-				updateCounter("Tất cả", $grid.isotope("getFilteredItemElements").length);
-
-				// Xử lý sự kiện click vào filter
+				// Khởi tạo Isotope khi cửa sổ đã tải hoàn toàn
+				function initIsotope() {
+					if (isotopeInitialized) return;
+					
+					$grid.isotope({
+						itemSelector: ".mix",
+						layoutMode: "fitRows",
+						transitionDuration: "0.4s", // Giảm thời gian chuyển đổi
+						stagger: 20, // Giảm thời gian giãn cách
+						hiddenStyle: {
+							opacity: 0,
+							transform: "scale(0.9)", // Giảm hiệu ứng scale
+						},
+						visibleStyle: {
+							opacity: 1,
+							transform: "scale(1)",
+						},
+					});
+					
+					isotopeInitialized = true;
+					
+					// Cập nhật số lượng ảnh ban đầu
+					updateCounter("Tất cả", $grid.isotope("getFilteredItemElements").length);
+				}
+				
+				// Khởi tạo với timeout để đảm bảo ảnh đã được tải
+				setTimeout(initIsotope, 200);
+				
+				// Xử lý sự kiện click vào filter được tối ưu hóa
 				$(".gallery-filter li").on("click", function () {
-					// Hiệu ứng ripple cho filter
+					// Ngăn chặn xử lý nếu isotope chưa khởi tạo
+					if (!isotopeInitialized) return;
+					
+					// Sử dụng throttle để hạn chế số lần xử lý liên tiếp
+					throttledFilter(this);
+				});
+				
+				// Throttle filter function
+				var throttledFilter = throttle(function(element) {
 					$(".gallery-filter li").removeClass("active clicked");
-					$(this).addClass("active clicked");
-
-					// Thêm hiệu ứng pulse cho text
-					$(this).find("span").addClass("pulse-animation");
-					setTimeout(function () {
-						$(".gallery-filter li span").removeClass("pulse-animation");
-					}, 700);
+					$(element).addClass("active clicked");
 
 					// Lấy giá trị filter và tên danh mục
-					var filterValue = $(this).attr("data-filter");
-					var filterName = $(this).find("span").text().trim();
-
-					// Hiệu ứng mờ trước khi filter
-					$(".gallery__item").addClass("dimmed-item");
-
-					// Delay nhỏ để hiệu ứng visible
-					setTimeout(function () {
-						// Thực hiện filter
-						$grid.isotope({ filter: filterValue });
-
-						// Sau khi filter hoàn tất
-						setTimeout(function () {
-							// Bỏ hiệu ứng mờ
-							$(".gallery__item").removeClass("dimmed-item");
-
-							// Cập nhật bộ đếm và kiểm tra có item nào visible không
-							var visibleItemsCount = $grid.isotope("getFilteredItemElements").length;
-
-							updateCounter(filterName, visibleItemsCount);
-
-							// Hiển thị thông báo nếu không có ảnh
-							if (visibleItemsCount === 0) {
-								$noItemsMessage.fadeIn(300);
-								// Thêm hiệu ứng rung nhẹ cho thông báo
-								$noItemsMessage.addClass("shake-effect");
-								setTimeout(function () {
-									$noItemsMessage.removeClass("shake-effect");
-								}, 500);
-							} else {
-								$noItemsMessage.fadeOut(300);
-							}
-
-							// Scroll lên đầu gallery nếu cần
-							if ($(window).width() < 768) {
-								$("html, body").animate(
-									{
-										scrollTop: $grid.offset().top - 100,
-									},
-									300
-								);
-							}
-						}, 300);
-					}, 100);
-				});
-
-				// Hàm cập nhật bộ đếm với animation
+					var filterValue = $(element).attr("data-filter");
+					var filterName = $(element).find("span").text().trim();
+					
+					// Thực hiện filter ngay lập tức
+					$grid.isotope({ filter: filterValue });
+					
+					// Cập nhật bộ đếm và kiểm tra có item nào visible không
+					var visibleItemsCount = $grid.isotope("getFilteredItemElements").length;
+					updateCounter(filterName, visibleItemsCount);
+					
+					// Hiển thị thông báo nếu không có ảnh
+					if (visibleItemsCount === 0) {
+						$noItemsMessage.fadeIn(200);
+					} else {
+						$noItemsMessage.fadeOut(200);
+					}
+				}, 300);
+				
+				// Hàm cập nhật bộ đếm với animation nhẹ hơn
 				function updateCounter(name, count) {
-					$categoryName.fadeOut(150, function () {
-						$(this).text(name).fadeIn(150);
-					});
-					$visibleCount.fadeOut(150, function () {
-						$(this).text(count).fadeIn(150);
-					});
+					$categoryName.text(name);
+					$visibleCount.text(count);
 				}
 
-				// Reset filter với hiệu ứng mượt mà
+				// Reset filter
 				$(".reset-filter").on("click", function () {
 					$(".gallery-filter li[data-filter='*']").trigger("click");
 				});
-
-				// Thêm tooltip cho gallery items
-				$(".gallery__item").each(function () {
-					var title = $(this).find("h4").text();
-					var desc = $(this).find("p").text();
-					$(this).attr("title", title + " - " + desc);
-				});
+				
+				// Throttle function để tối ưu hiệu suất
+				function throttle(func, limit) {
+					var inThrottle;
+					return function() {
+						var args = arguments;
+						var context = this;
+						if (!inThrottle) {
+							func.apply(context, args);
+							inThrottle = true;
+							setTimeout(function() {
+								inThrottle = false;
+							}, limit);
+						}
+					};
+				}
 			});
 		</script>
 	</body>

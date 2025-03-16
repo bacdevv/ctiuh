@@ -2,64 +2,74 @@
 <html lang="vi">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Căn tin IUH | Trang chủ</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link rel="preconnect" href="https://code.jquery.com" crossorigin />
-		<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-		<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Preload critical resources -->
+		<link rel="preload" href="css/style.css" as="style" />
+		<link rel="preload" href="css/custom.css" as="style" />
+		<link rel="preload" href="css/performance.css" as="style" />
+		<link rel="preload" href="js/main.js" as="script" />
+		<link rel="preload" href="js/performance-optimization.js" as="script" />
+		<link rel="preload" href="img/gallery/1.jpg" as="image" />
+		
+		<!-- Google Fonts - Chia làm 2 để tải nhanh hơn -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link
-			href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@400;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap"
 			rel="stylesheet" />
 
-		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
-		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
-		<link rel="shortcut icon" href="favicon/favicon.ico" />
-		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-		<link rel="manifest" href="favicon/site.webmanifest" />
-
+		<!-- Bootstrap 5 CSS -->
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 			rel="stylesheet" />
+		<!-- Font Awesome 6 (chỉ tải các thành phần cần thiết) -->
 		<link
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-			rel="stylesheet"
-			integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer" />
+			rel="stylesheet" crossorigin="anonymous" />
+		<!-- SlickNav CSS -->
 		<link
 			href="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/slicknav.min.css"
-			rel="stylesheet" />
+			rel="stylesheet" crossorigin="anonymous" />
+		<!-- Slick Slider CSS -->
 		<link
 			href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
-			rel="stylesheet" />
+			rel="stylesheet" crossorigin="anonymous" />
 		<link
 			href="https://cdnjs.cloudflare.com/ajax/libs/fresco/1.3.0/css/fresco.css"
-			rel="stylesheet" />
+			rel="stylesheet" crossorigin="anonymous" />
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/custom.css" />
+		<link rel="stylesheet" href="css/performance.css" />
 		<meta name="robots" content="index, follow" />
-<title>Căn tin IUH | Trang chủ</title>
-<meta name="description" content="Căn tin IUH cung cấp thực đơn phong phú, không gian hiện đại và dịch vụ chuyên nghiệp cho sinh viên và giảng viên.">
+		<title>Căn tin IUH | Trang chủ</title>
+		<meta name="description" content="Căn tin IUH cung cấp thực đơn phong phú, không gian hiện đại và dịch vụ chuyên nghiệp cho sinh viên và giảng viên.">
 
-<meta property="og:url" content="https://ctiuh.live/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Căn tin IUH | Trang chủ">
-<meta property="og:description" content="Căn tin IUH cung cấp thực đơn phong phú, không gian hiện đại và dịch vụ chuyên nghiệp cho sinh viên và giảng viên.">
-<meta property="og:image" content="https://opengraph.b-cdn.net/production/images/74fb4b34-3880-4c8a-af9d-fd0fdd11d6d3.jpg?token=A5WCUtncbQpjUSzYkr0t9rWUQqOfNX6PRMkaJhLdu2o&height=800&width=1200&expires=33278032830">
+		<!-- Open Graph tags và các meta tag khác giữ nguyên -->
+		<meta property="og:url" content="https://ctiuh.live/">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Căn tin IUH | Trang chủ">
+		<meta property="og:description" content="Căn tin IUH cung cấp thực đơn phong phú, không gian hiện đại và dịch vụ chuyên nghiệp cho sinh viên và giảng viên.">
+		<meta property="og:image" content="https://opengraph.b-cdn.net/production/images/74fb4b34-3880-4c8a-af9d-fd0fdd11d6d3.jpg?token=A5WCUtncbQpjUSzYkr0t9rWUQqOfNX6PRMkaJhLdu2o&height=800&width=1200&expires=33278032830">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta property="twitter:domain" content="ctiuh.live">
-<meta property="twitter:url" content="https://ctiuh.live/">
-<meta name="twitter:title" content="Căn tin IUH | Trang chủ">
-<meta name="twitter:description" content="Căn tin IUH cung cấp thực đơn phong phú, không gian hiện đại và dịch vụ chuyên nghiệp cho sinh viên và giảng viên.">
-<meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/74fb4b34-3880-4c8a-af9d-fd0fdd11d6d3.jpg?token=A5WCUtncbQpjUSzYkr0t9rWUQqOfNX6PRMkaJhLdu2o&height=800&width=1200&expires=33278032830">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:domain" content="ctiuh.live">
+		<meta property="twitter:url" content="https://ctiuh.live/">
+		<meta name="twitter:title" content="Căn tin IUH | Trang chủ">
+		<meta name="twitter:description" content="Căn tin IUH cung cấp thực đơn phong phú, không gian hiện đại và dịch vụ chuyên nghiệp cho sinh viên và giảng viên.">
+		<meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/74fb4b34-3880-4c8a-af9d-fd0fdd11d6d3.jpg?token=A5WCUtncbQpjUSzYkr0t9rWUQqOfNX6PRMkaJhLdu2o&height=800&width=1200&expires=33278032830">
 
 		<link rel="canonical" href="https://ctiuh.live/index.html" />
 		<meta
 			http-equiv="Content-Security-Policy"
 			content="default-src 'self'; script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://ctiuh.live https://maps.gstatic.com https://*.googleusercontent.com https://www.google-analytics.com; frame-src https://www.google.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com;" />
+
+		<!-- Thêm DNS prefetching cho các domain bên thứ ba -->
+		<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+		<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+		<link rel="dns-prefetch" href="https://code.jquery.com">
+		
+		<!-- Thêm meta để ngăn chặn render blocking -->
+		<meta http-equiv="x-dns-prefetch-control" content="on">
 
             <script async src="https://www.googletagmanager.com/gtag/js?id=G-RX169NJ84K"></script>
             <script>
@@ -108,7 +118,7 @@
 					</div>
 					<div class="col-sm-4 col-md-6 order-1 order-md-2 text-center">
 						<a href="./index.html" class="site-logo">
-							<img src="img/logo.png" alt="IUH Căn Tin" />
+							<img src="img/logo.png" alt="IUH Căn Tin" loading="lazy" />
 						</a>
 					</div>
 					<div class="col-sm-4 col-md-3 order-3 order-sm-3">
@@ -477,18 +487,15 @@
 			</div>
 		</button>
 
+		<!-- Thay đổi cách load script để tăng performance -->
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"
 			integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
 			crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-			crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/fresco/1.3.0/js/fresco.min.js"></script>
-		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
-			integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0="
-			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" defer></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js" defer></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/fresco/1.3.0/js/fresco.min.js" defer></script>
 		<script src="js/main.js" defer></script>
+		<script src="js/performance-optimization.js" defer></script>
 	</body>
 </html>

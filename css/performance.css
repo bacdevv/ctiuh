@@ -1,0 +1,82 @@
+/* Tối ưu hiệu suất render */
+
+/* Sử dụng will-change cho các phần tử thường xuyên thay đổi */
+.header,
+.hero-slider .slide-item,
+.gallery__item {
+	will-change: transform, opacity;
+}
+
+/* Sử dụng transform thay vì top, left để tăng hiệu suất animation */
+.sticky {
+	transform: translateY(0);
+}
+
+/* Cải thiện hiệu suất hover */
+.gallery__item-info,
+.service-item,
+.footer-social a {
+	transition: transform 0.3s ease, opacity 0.3s ease;
+	backface-visibility: hidden;
+}
+
+/* Tăng hiệu suất hiển thị hình ảnh */
+img {
+	content-visibility: auto;
+}
+
+/* Tối ưu hiệu ứng loading */
+img.img-loaded {
+	animation: fadeIn 0.5s ease;
+}
+
+/* Tối ưu scroll */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Tối ưu hiệu suất cho mobile */
+@media (max-width: 768px) {
+	.animate-on-scroll {
+		animation-duration: 0.5s; /* Giảm thời gian animation trên mobile */
+	}
+
+	.service-item,
+	.location-card,
+	.commitment-card {
+		transition-duration: 0.3s; /* Giảm thời gian transition trên mobile */
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* Hiệu ứng placeholder cho hình ảnh */
+.image-placeholder {
+	background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+	background-size: 200% 100%;
+	animation: shimmer 1.5s linear infinite;
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -100% 0;
+	}
+	100% {
+		background-position: 100% 0;
+	}
+}
+
+/* Tăng trường hợp rendering trên GPU thay vì CPU */
+.gallery__item:hover,
+.service-item:hover,
+.footer-social a:hover,
+.commitment-card:hover {
+	transform: translateZ(0);
+}
