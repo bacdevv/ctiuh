@@ -81,6 +81,25 @@
 			.fancybox__button--arrow_left svg,
 			.fancybox__button--arrow_right svg {
 				fill: #fff;
+				}
+			
+			/* Fix header appearing above lightbox */
+			body:has(.fancybox__container) .modern-header,
+			body:has(.fr-overlay) .modern-header {
+				z-index: 2 !important; /* Lower than lightbox z-index */
+			}
+			
+			/* For browsers that don't support :has selector */
+			.fancybox-active .modern-header,
+			.fr-active .modern-header {
+				z-index: 2 !important;
+			}
+			
+			/* Ensure lightbox containers have higher z-index */
+			.fancybox__container, 
+			.fr-overlay, 
+			.fr-window {
+				z-index: 9999 !important;
 			}
 		</style>
 	</head>
@@ -274,8 +293,7 @@
 								</div>
 							</a>
 						</div>
-					</div>
-
+				
 					<!-- Thông báo khi không có ảnh -->
 					<div class="no-items-message text-center py-5" style="display: none">
 						<div class="no-items-container">
@@ -291,7 +309,7 @@
 				<div class="gallery-counter text-center mt-4">
 					<span>Đang hiển thị: </span>
 					<span class="category-name font-weight-bold">Tất cả</span>
-					<span class="item-count ml-2">(<span id="visible-count">8</span> ảnh)</span>
+					<span class="item-count ml-2">(<span id="visible-count">16</span> ảnh)</span>
 				</div>
 			</div>
 		</section>
@@ -531,6 +549,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/fresco/1.3.0/js/fresco.min.js"></script>
+		<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 		<script src="js/main.js"></script>
 		<!-- Add Fancybox JS -->
 		<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
@@ -542,42 +561,113 @@
 		</script>
 		<script>
 			$(window).on("load", function () {
+				// Khai báo các biến
 				var $grid = $(".gallery-items");
 				var $noItemsMessage = $(".no-items-message");
 				var $categoryName = $(".category-name");
 				var $visibleCount = $("#visible-count");
 
+				// Khởi tạo Isotope với hiệu ứng mượt mà
 				$grid.isotope({
 					itemSelector: ".mix",
 					layoutMode: "fitRows",
 					transitionDuration: "0.6s",
-					stagger: 50,
+					stagger: 30,
+					hiddenStyle: {
+						opacity: 0,
+						transform: "scale(0.8)",
+					},
+					visibleStyle: {
+						opacity: 1,
+						transform: "scale(1)",
+					},
 				});
 
+				// Cập nhật số lượng ảnh ban đầu
+				updateCounter("Tất cả", $grid.isotope("getFilteredItemElements").length);
+
+				// Xử lý sự kiện click vào filter
 				$(".gallery-filter li").on("click", function () {
-					// Cập nhật lớp active và ripple
+					// Hiệu ứng ripple cho filter
 					$(".gallery-filter li").removeClass("active clicked");
 					$(this).addClass("active clicked");
 
-					var filterValue = $(this).attr("data-filter");
-					var filterName = $(this).text().trim();
+					// Thêm hiệu ứng pulse cho text
+					$(this).find("span").addClass("pulse-animation");
+					setTimeout(function () {
+						$(".gallery-filter li span").removeClass("pulse-animation");
+					}, 700);
 
-					// Gọi Isotope filter trực tiếp mà không ẩn container
-					$grid.isotope({ filter: filterValue }, function () {
-						var visibleItemsCount = $grid.isotope("getFilteredItemElements").length;
-						$categoryName.text(filterName);
-						$visibleCount.text(visibleItemsCount);
-						if (visibleItemsCount === 0) {
-							$noItemsMessage.fadeIn(300);
-						} else {
-							$noItemsMessage.fadeOut(300);
-						}
-					});
+					// Lấy giá trị filter và tên danh mục
+					var filterValue = $(this).attr("data-filter");
+					var filterName = $(this).find("span").text().trim();
+
+					console.log("Applying filter:", filterValue); // Debug logging
+
+					// Hiệu ứng mờ trước khi filter
+					$(".gallery__item").addClass("dimmed-item");
+
+					// Delay nhỏ để hiệu ứng visible
+					setTimeout(function () {
+						// Thực hiện filter
+						$grid.isotope({ filter: filterValue });
+
+						// Sau khi filter hoàn tất
+						setTimeout(function () {
+							// Bỏ hiệu ứng mờ
+							$(".gallery__item").removeClass("dimmed-item");
+
+							// Cập nhật bộ đếm và kiểm tra có item nào visible không
+							var visibleItemsCount = $grid.isotope("getFilteredItemElements").length;
+							console.log("Visible items count:", visibleItemsCount); // Debug logging
+
+							updateCounter(filterName, visibleItemsCount);
+
+							// Hiển thị thông báo nếu không có ảnh
+							if (visibleItemsCount === 0) {
+								$noItemsMessage.fadeIn(300);
+								// Thêm hiệu ứng rung nhẹ cho thông báo
+								$noItemsMessage.addClass("shake-effect");
+								setTimeout(function () {
+									$noItemsMessage.removeClass("shake-effect");
+								}, 500);
+							} else {
+								$noItemsMessage.fadeOut(300);
+							}
+
+							// Scroll lên đầu gallery nếu cần
+							if ($(window).width() < 768) {
+								$("html, body").animate(
+									{
+										scrollTop: $grid.offset().top - 100,
+									},
+									300
+								);
+							}
+						}, 300);
+					}, 100);
 				});
 
-				// Reset filter
+				// Hàm cập nhật bộ đếm với animation
+				function updateCounter(name, count) {
+					$categoryName.fadeOut(150, function () {
+						$(this).text(name).fadeIn(150);
+					});
+					$visibleCount.fadeOut(150, function () {
+						$(this).text(count).fadeIn(150);
+					});
+				}
+
+				// Reset filter với hiệu ứng mượt mà
 				$(".reset-filter").on("click", function () {
 					$(".gallery-filter li[data-filter='*']").trigger("click");
+				});
+
+				// Thêm tooltip cho gallery items
+				$(".gallery__item").each(function () {
+					var title = $(this).find("h4").text();
+					var desc = $(this).find("p").text();
+					$(this).attr("title", title + " - " + desc);
 				});
 			});
 		</script>

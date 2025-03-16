@@ -1168,13 +1168,20 @@ a {
 	border-radius: var(--border-radius-medium);
 	overflow: hidden;
 	box-shadow: var(--shadow-soft);
-	transition: var(--transition-fast);
-	height: 250px; /* Điều chỉnh chiều cao nếu cần */
+	transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+	height: 250px; /* Consistent height */
 }
 
 .gallery__item:hover {
-	transform: translateY(-10px);
+	transform: translateY(-10px) scale(1.02);
 	box-shadow: var(--shadow-strong);
+	z-index: 2;
+}
+
+.gallery__item.dimmed-item {
+	opacity: 0.4;
+	transform: scale(0.95);
+	filter: blur(2px);
 }
 
 .gallery__item img {
@@ -2208,7 +2215,7 @@ commitment-divider {
 	left: 50%;
 	width: 5px;
 	height: 5px;
-	background: rgba(141, 185, 82, 0.3);
+	background: rgba(141, 185, 82, 0.5);
 	opacity: 0;
 	border-radius: 100%;
 	transform: scale(1) translate(-50%, -50%);
@@ -2216,7 +2223,7 @@ commitment-divider {
 }
 
 .gallery-filter li.clicked::after {
-	animation: ripple 0.8s ease-out;
+	animation: ripple 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 @keyframes ripple {
@@ -2225,11 +2232,11 @@ commitment-divider {
 		transform: scale(0) translate(-50%, -50%);
 	}
 	80% {
-		opacity: 0.3;
+		opacity: 0.5;
 	}
 	100% {
 		opacity: 0;
-		transform: scale(20) translate(-50%, -50%);
+		transform: scale(25) translate(-50%, -50%);
 	}
 }
 
@@ -2237,18 +2244,52 @@ commitment-divider {
 .gallery-counter {
 	color: var(--text-light);
 	font-size: 16px;
-	transition: all 0.3s ease;
+	transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+	padding: 8px 15px;
+	border-radius: 30px;
+	/* Thay đổi từ inline-block thành block và thêm margin auto để căn giữa */
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: fit-content;
+	background-color: rgba(245, 245, 245, 0.7);
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+	animation: fadeInUp 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+	border: 1px solid rgba(141, 185, 82, 0.2);
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 .gallery-counter .category-name {
 	color: var(--primary-color);
 	font-weight: 600;
+	position: relative;
+	padding-bottom: 2px;
 }
 
-.gallery-counter .item-count {
-	color: var(--text-color);
-	font-size: 14px;
-	opacity: 0.8;
+.gallery-counter .category-name::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background-color: var(--primary-color);
+	transform: scaleX(0);
+	transition: transform 0.3s ease;
+}
+
+.gallery-counter:hover .category-name::after {
+	transform: scaleX(1);
 }
 
 /* Animation chuyển danh mục */
