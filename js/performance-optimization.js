@@ -65,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			animationObserver.observe(el);
 		});
 	}
-
 	// Giảm thiểu repaints và reflows
 	function optimizeScrollEvents() {
 		let ticking = false;
