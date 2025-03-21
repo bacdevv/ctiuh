@@ -804,6 +804,7 @@ li {
 @media only screen and (min-width: 576px) and (max-width: 767px) {
 	.main__menu .nav__menu > li > a {
 		margin-right: 20px;
+		color: #fff !important;
 	}
 	.blog__item h3 {
 		font-size: 22px;

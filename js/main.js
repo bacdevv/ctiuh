@@ -131,62 +131,69 @@ const initHeader = () => {
 			});
 	},
 	initSliders = () => {
-		const e = $(".hero-slider");
-		if (e.length) {
-			e.slick({
-				dots: !1,
-				infinite: !0,
+		const $heroSlider = $(".hero-slider");
+		if ($heroSlider.length) {
+			$heroSlider.slick({
+				dots: false,
+				infinite: true,
 				speed: 700,
 				slidesToShow: 1,
-				centerMode: !0,
-				variableWidth: !0,
-				arrows: !1,
+				centerMode: true,
+				variableWidth: true,
+				arrows: false,
 				asNavFor: ".hero-text-slider",
-				autoplay: !0,
-				pauseOnHover: !1,
-				autoplaySpeed: 5e3,
+				autoplay: true,
+				pauseOnHover: false,
+				autoplaySpeed: 5000,
 				responsive: [
 					{
 						breakpoint: 991,
 						settings: {
-							centerMode: !1,
-							variableWidth: !1,
-							adaptiveHeight: !0,
-							fade: !0,
+							centerMode: false,
+							variableWidth: false,
+							adaptiveHeight: true,
+							fade: true,
 							cssEase: "cubic-bezier(0.7, 0, 0.3, 1)",
 						},
 					},
 					{
 						breakpoint: 480,
 						settings: {
-							centerMode: !1,
-							variableWidth: !1,
-							adaptiveHeight: !0,
-							fade: !0,
+							centerMode: false,
+							variableWidth: false,
+							adaptiveHeight: true,
+							fade: true,
 						},
 					},
 				],
-			}),
-				$window.on("scroll", function () {
-					if ($window.width() <= 991) {
-						const e = $(".modern-header").outerHeight(),
-							t = $(".hero__section").outerHeight(),
-							o = $window.scrollTop() > t - e;
-						$(".modern-header").toggleClass("scrolled", o);
-					}
-				});
+			});
+			// Ensure slider adjusts when window resizes
+			$window.on(
+				"resize",
+				debounce(() => {
+					$heroSlider.slick("setPosition");
+				}, 100)
+			);
+			$window.on("scroll", function () {
+				if ($window.width() <= 991) {
+					const e = $(".modern-header").outerHeight(),
+						t = $(".hero__section").outerHeight(),
+						o = $window.scrollTop() > t - e;
+					$(".modern-header").toggleClass("scrolled", o);
+				}
+			});
 			const t = () => {
 				$(".hero-slider-nav").toggle($window.width() > 767);
 			};
 			t(),
 				$window.on("resize", debounce(t, 100)),
-				$(".hero-slider-nav .prev-slide").on("click", () => e.slick("slickPrev")),
-				$(".hero-slider-nav .next-slide").on("click", () => e.slick("slickNext")),
+				$(".hero-slider-nav .prev-slide").on("click", () => $heroSlider.slick("slickPrev")),
+				$(".hero-slider-nav .next-slide").on("click", () => $heroSlider.slick("slickNext")),
 				// Update click event: on tablet/mobile, tap on a slide triggers next slide
-				e.off("click", ".slick-slide").on("click", ".slick-slide", function (t) {
+				$heroSlider.off("click", ".slick-slide").on("click", ".slick-slide", function (t) {
 					if ($(window).width() <= 991) {
 						t.preventDefault();
-						e.slick("slickNext");
+						$heroSlider.slick("slickNext");
 					}
 				}),
 				$(".hero-text-slider").slick({
