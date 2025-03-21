@@ -189,11 +189,16 @@ const initHeader = () => {
 				$window.on("resize", debounce(t, 100)),
 				$(".hero-slider-nav .prev-slide").on("click", () => $heroSlider.slick("slickPrev")),
 				$(".hero-slider-nav .next-slide").on("click", () => $heroSlider.slick("slickNext")),
-				// Update click event: on tablet/mobile, tap on a slide triggers next slide
+				// Update click event: clicking on a slide navigates to that slide
 				$heroSlider.off("click", ".slick-slide").on("click", ".slick-slide", function (t) {
-					if ($(window).width() <= 991) {
+					// Prevent default action only if we're handling the click ourselves
+					const clickedSlide = $(this);
+					const slideIndex = clickedSlide.data("slick-index");
+
+					// If we have a valid slide index, go to that slide
+					if (typeof slideIndex !== "undefined") {
 						t.preventDefault();
-						$heroSlider.slick("slickNext");
+						$heroSlider.slick("slickGoTo", slideIndex);
 					}
 				}),
 				$(".hero-text-slider").slick({
