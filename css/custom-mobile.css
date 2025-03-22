@@ -1,0 +1,212 @@
+/**
+ * Custom mobile optimizations for all pages
+ * This file contains mobile-specific optimizations that apply to the entire site
+ */
+
+/* Base mobile optimizations */
+@media (max-width: 768px) {
+	/* Hide desktop-only elements on mobile */
+	.desktop-only {
+		display: none !important;
+	}
+
+	/* General typography adjustments for mobile */
+	h1 {
+		font-size: 32px !important;
+	}
+
+	h2 {
+		font-size: 24px !important;
+		line-height: 1.3 !important;
+	}
+
+	h3 {
+		font-size: 20px !important;
+	}
+
+	h4 {
+		font-size: 18px !important;
+	}
+
+	p {
+		font-size: 14px !important;
+	}
+
+	/* Section spacing adjustments */
+	.section-padding {
+		padding: 40px 0 !important;
+	}
+
+	/* Adjust container padding */
+	.container {
+		padding-left: 15px !important;
+		padding-right: 15px !important;
+	}
+
+	/* Optimize header for mobile */
+	.header {
+		padding: 15px 0 !important;
+	}
+
+	/* Optimize footer for mobile */
+	.footer-widget h5 {
+		font-size: 16px !important;
+		margin-bottom: 10px;
+	}
+
+	.footer-info li {
+		margin-bottom: 10px;
+	}
+
+	.footer-hours {
+		margin-bottom: 5px;
+	}
+
+	/* Optimize buttons for mobile */
+	.site-btn {
+		min-width: 150px !important;
+		padding: 12px 10px !important;
+		font-size: 14px !important;
+	}
+
+	/* Image optimizations */
+	img {
+		max-width: 100% !important;
+		height: auto !important;
+	}
+
+	/* Optimize form elements */
+	input,
+	textarea,
+	select {
+		font-size: 14px !important;
+	}
+
+	/* Optimize service items */
+	.service-item {
+		margin-bottom: 30px;
+		padding: 15px !important;
+	}
+
+	.service-icon {
+		font-size: 30px !important;
+		margin-bottom: 10px !important;
+	}
+
+	/* About section mobile optimization */
+	.about-video-wrapper {
+		margin-top: 20px;
+	}
+
+	.video-controls {
+		padding: 5px !important;
+	}
+
+	/* Gallery optimizations */
+	.gallery__item {
+		margin-bottom: 15px !important;
+	}
+
+	.gallery__item-info {
+		padding: 10px !important;
+	}
+
+	/* Location card optimizations */
+	.location-card {
+		margin-bottom: 20px;
+	}
+
+	.location-header {
+		padding: 10px !important;
+	}
+
+	/* Commitment card optimizations */
+	.commitment-card {
+		margin-bottom: 20px;
+	}
+
+	.commitment-content {
+		padding: 15px !important;
+	}
+
+	/* Search model optimizations */
+	.search-model-form input {
+		width: 80% !important;
+		font-size: 20px !important;
+	}
+
+	/* Optimize iframes */
+	iframe {
+		max-height: 70vh !important;
+	}
+
+	/* Smooth transitions for mobile */
+	* {
+		transition: all 0.3s ease-in-out;
+	}
+}
+
+/* Small mobile devices */
+@media (max-width: 576px) {
+	/* Further reduced sizes for very small screens */
+	h1 {
+		font-size: 28px !important;
+	}
+
+	h2 {
+		font-size: 22px !important;
+	}
+
+	.section-padding {
+		padding: 30px 0 !important;
+	}
+
+	/* Stack elements in footer */
+	.footer-widget {
+		margin-bottom: 30px !important;
+	}
+
+	/* Adjust map size */
+	.footer-location-map {
+		height: 200px !important;
+	}
+}
+
+/* Optimize images to prevent layout shift */
+img[data-mobile-src] {
+	min-height: 100px;
+	background-color: #f5f5f5;
+}
+
+/* Add mobile-specific loading indicator */
+.mobile-loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.9);
+	z-index: 9999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.mobile-loading-spinner {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 3px solid #f3f3f3;
+	border-top: 3px solid #8db952;
+	animation: mobile-spin 1s linear infinite;
+}
+
+@keyframes mobile-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

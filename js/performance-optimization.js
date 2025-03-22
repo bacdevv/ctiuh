@@ -100,6 +100,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		window.addEventListener("resize", debouncedLayout);
 	}
+
+	// Mobile slider optimization
+	const isMobile = window.innerWidth <= 768;
+
+	if (isMobile) {
+		// Use smaller images on mobile
+		const slideItems = document.querySelectorAll(".slide-item");
+		slideItems.forEach((slide) => {
+			const img = slide.querySelector("img");
+			const mobileSrc = slide.getAttribute("data-mobile-src");
+
+			if (mobileSrc && img) {
+				// Create a new image to preload
+				const tempImg = new Image();
+				tempImg.onload = function () {
+					// Replace image source only after loaded
+					img.src = mobileSrc;
+				};
+				tempImg.src = mobileSrc;
+			}
+		});
+
+		// Simplify slider initialization on mobile
+		if (typeof $ !== "undefined" && $.fn.slick) {
+			// Modify slick slider settings for mobile
+			$(".hero-slider").slick(
+				"slickSetOption",
+				{
+					centerMode: false,
+					variableWidth: false,
+					slidesToShow: 1,
+					adaptiveHeight: true,
+					fade: true,
+					cssEase: "ease-out",
+					speed: 300,
+					lazyLoad: "ondemand",
+				},
+				true
+			);
+		}
+	}
+
+	// Handle window resize
+	window.addEventListener(
+		"resize",
+		throttle(function () {
+			const wasMobile = isMobile;
+			const nowMobile = window.innerWidth <= 768;
+
+			// Only take action if mobile state changed
+			if (wasMobile !== nowMobile) {
+				// Reload page for simplicity
+				// For production use a more elegant solution
+				location.reload();
+			}
+		}, 500)
+	);
 });
 
 // Debounce function để giảm thiểu việc gọi hàm quá nhiều lần

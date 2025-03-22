@@ -166,84 +166,57 @@
 
 		<section class="hero__section">
 			<div class="hero-slider">
-				<div class="slide-item">
-					<a class="fresco" href="img/gallery/1.jpg" data-fresco-group="projects">
-						<img src="img/gallery/1.jpg" alt="Căn tin cơ sở chính" />
-						<div class="slide-desc">
-							<h4 class="slide-title">Căn tin cơ sở chính</h4>
-							<p class="slide-text">
-								Không gian rộng rãi, hiện đại với nhiều khu vực phục vụ đa dạng món
-								ăn.
-							</p>
-						</div>
-					</a>
+				<!-- Simplified slide structure for better mobile performance -->
+				<div class="slide-item" data-mobile-src="img/gallery/mobile/1.jpg">
+					<img src="img/gallery/1.jpg" alt="Căn tin cơ sở chính" loading="lazy" />
+					<div class="slide-desc">
+						<h4 class="slide-title">Căn tin cơ sở chính</h4>
+						<p class="slide-text">Không gian rộng rãi, hiện đại với nhiều khu vực phục vụ đa dạng món ăn.</p>
+					</div>
 				</div>
-				<div class="slide-item">
-					<a class="fresco" href="img/gallery/3.jpg" data-fresco-group="projects">
-						<img src="img/gallery/3.jpg" alt="Không gian ẩm thực" />
-						<div class="slide-desc">
-							<h4 class="slide-title">Không gian ẩm thực - CS2</h4>
-							<p class="slide-text">
-								Thiết kế tinh tế, ánh sáng hài hòa mang đến trải nghiệm ẩm thực sang
-								trọng.
-							</p>
-						</div>
-					</a>
+				<div class="slide-item" data-mobile-src="img/gallery/mobile/3.jpg">
+					<img src="img/gallery/3.jpg" alt="Không gian ẩm thực" loading="lazy" />
+					<div class="slide-desc">
+						<h4 class="slide-title">Không gian ẩm thực - CS2</h4>
+						<p class="slide-text">Thiết kế tinh tế, ánh sáng hài hòa mang đến trải nghiệm ẩm thực sang trọng.</p>
+					</div>
 				</div>
-				<div class="slide-item">
-					<a class="fresco" href="img/gallery/2.jpg" data-fresco-group="projects">
-						<img src="img/gallery/2.jpg" alt="Thực đơn phong phú" />
-						<div class="slide-desc">
-							<h4 class="slide-title">Thực đơn phong phú</h4>
-							<p class="slide-text">
-								Từ món truyền thống đến hiện đại, đáp ứng khẩu vị của mọi đối tượng
-								khách hàng.
-							</p>
-						</div>
-					</a>
+				<div class="slide-item" data-mobile-src="img/gallery/mobile/2.jpg">
+					<img src="img/gallery/2.jpg" alt="Thực đơn phong phú" loading="lazy" />
+					<div class="slide-desc">
+						<h4 class="slide-title">Thực đơn phong phú</h4>
+						<p class="slide-text">Từ món truyền thống đến hiện đại, đáp ứng khẩu vị của mọi đối tượng khách hàng.</p>
+					</div>
 				</div>
-				<div class="slide-item">
-					<a class="fresco" href="img/gallery/7.jpg" data-fresco-group="projects">
-						<img src="img/gallery/7.jpg" alt="Khu vực giải trí" />
-						<div class="slide-desc">
-							<h4 class="slide-title">Khu vực giải trí</h4>
-							<p class="slide-text">
-								Khu vực giải trí với các hoạt động như ca hát, trò chơi và giao lưu
-								giúp sinh viên thư giãn sau giờ học.
-							</p>
-						</div>
-					</a>
+				<!-- Only show these slides on desktop --> 
+				<div class="slide-item mobile-hidden" data-mobile-src="img/gallery/mobile/7.jpg">
+					<img src="img/gallery/7.jpg" alt="Khu vực giải trí" loading="lazy" />
+					<div class="slide-desc">
+						<h4 class="slide-title">Khu vực giải trí</h4>
+						<p class="slide-text">Khu vực giải trí với các hoạt động giúp sinh viên thư giãn sau giờ học.</p>
+					</div>
 				</div>
-
-				<div class="slide-item">
-					<a class="fresco" href="img/gallery/4.jpg" data-fresco-group="projects">
-						<img src="img/gallery/4.jpg" alt="Đồ ăn nhanh" />
-						<div class="slide-desc">
-							<h4 class="slide-title">Đồ ăn nhanh</h4>
-							<p class="slide-text">
-								Đa dạng các món ăn nhanh như bánh mì, hamburger, và mì ăn liền, phù
-								hợp cho những bữa ăn vội.
-							</p>
-						</div>
-					</a>
+				<div class="slide-item mobile-hidden" data-mobile-src="img/gallery/mobile/4.jpg">
+					<img src="img/gallery/4.jpg" alt="Đồ ăn nhanh" loading="lazy" />
+					<div class="slide-desc">
+						<h4 class="slide-title">Đồ ăn nhanh</h4>
+						<p class="slide-text">Đa dạng các món ăn nhanh phù hợp cho những bữa ăn vội.</p>
+					</div>
 				</div>
-
-				<div class="slide-item">
-					<a class="fresco" href="img/gallery/8.jpg" data-fresco-group="projects">
-						<img src="img/gallery/8.jpg" alt="Quầy đồ ăn" />
-						<div class="slide-desc">
-							<h4 class="slide-title">Quầy đồ ăn</h4>
-							<p class="slide-text">
-								Các quầy đồ ăn được bố trí hợp lý, phục vụ nhanh chóng và tiện lợi.
-							</p>
-						</div>
-					</a>
+				<div class="slide-item mobile-hidden" data-mobile-src="img/gallery/mobile/8.jpg">
+					<img src="img/gallery/8.jpg" alt="Quầy đồ ăn" loading="lazy" />
+					<div class="slide-desc">
+						<h4 class="slide-title">Quầy đồ ăn</h4>
+						<p class="slide-text">Các quầy đồ ăn được bố trí hợp lý, phục vụ nhanh chóng và tiện lợi.</p>
+					</div>
 				</div>
 			</div>
+			<!-- Simplified navigation controls -->
 			<div class="hero-slider-nav">
-				<button class="prev-slide"><i class="fa-solid fa-angle-left"></i></button>
-				<button class="next-slide"><i class="fa-solid fa-angle-right"></i></button>
+				<button class="prev-slide" aria-label="Previous slide"><i class="fa-solid fa-angle-left"></i></button>
+				<button class="next-slide" aria-label="Next slide"><i class="fa-solid fa-angle-right"></i></button>
 			</div>
+			<!-- Simplified text slider -->
 			<div class="hero-text-slider">
 				<div class="text-item">
 					<h2>Căn Tin Cơ Sở Chính</h2>
@@ -495,6 +468,15 @@
 		</footer>
 		<!-- Footer Section end -->
 
+		<!-- Scroll to top button -->
+		<button class="scroll-top-btn" id="scrollTopBtn">
+			<div class="scroll-top-inner">
+				<i class="fa fa-angle-up"></i>
+				<span class="ripple-circle"></span>
+				<span class="ripple-circle"></span>
+			</div>
+		</button>
+
 		<div class="search-model">
 			<div class="h-100 d-flex align-items-center justify-content-center">
 				<div class="search-close-switch">+</div>
@@ -526,5 +508,6 @@
 		<script src="js/template-loader.js"></script>
 		<script src="js/main.js" defer></script>
 		<script src="js/performance-optimization.js" defer></script>
+		<script src="js/mobile-slider-fix.js" defer></script>
 	</body>
 </html>

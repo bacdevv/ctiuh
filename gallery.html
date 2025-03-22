@@ -101,6 +101,41 @@
 			.fr-window {
 				z-index: 9999 !important;
 			}
+
+			/* Mobile optimization styles */
+			@media (max-width: 768px) {
+				.gallery-filter li {
+					margin-bottom: 8px;
+					font-size: 14px;
+					padding: 6px 10px;
+				}
+				
+				.gallery-filter {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: center;
+				}
+				
+				.gallery__item-info h4 {
+					font-size: 16px;
+				}
+				
+				.gallery__item-info p {
+					font-size: 12px;
+				}
+				
+				.stat-item h3 {
+					font-size: 24px;
+				}
+				
+				.stat-item p {
+					font-size: 14px;
+				}
+				
+				.gallery-items .col-lg-3 {
+					width: 50%;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -195,7 +230,11 @@
 								href="img/gallery/1.jpg"
 								data-fresco-group="gallery"
 								data-fresco-caption="Khu vực chính của căn tin cơ sở Nguyễn Văn Bảo">
-								<img src="img/gallery/1.jpg" alt="Không gian căn tin" loading="lazy" />
+									<img 
+										src="img/gallery/1.jpg" 
+										alt="Không gian căn tin" 
+										loading="lazy"
+										data-mobile-src="img/gallery/mobile/1.jpg" />
 								<div class="gallery__item-info">
 									<h4>Không gian rộng rãi</h4>
 									<p>Khu vực chính</p>
@@ -569,6 +608,7 @@
 				var $categoryName = $(".category-name");
 				var $visibleCount = $("#visible-count");
 				var isotopeInitialized = false;
+				var isMobile = window.innerWidth <= 768;
 
 				// Khởi tạo Isotope khi cửa sổ đã tải hoàn toàn
 				function initIsotope() {
@@ -576,12 +616,12 @@
 					
 					$grid.isotope({
 						itemSelector: ".mix",
-						layoutMode: "fitRows",
-						transitionDuration: "0.4s", // Giảm thời gian chuyển đổi
-						stagger: 20, // Giảm thời gian giãn cách
+						layoutMode: isMobile ? "masonry" : "fitRows", // Use masonry for mobile
+						transitionDuration: isMobile ? "0.3s" : "0.4s", // Faster transitions on mobile
+						stagger: isMobile ? 10 : 20, // Less stagger effect on mobile
 						hiddenStyle: {
 							opacity: 0,
-							transform: "scale(0.9)", // Giảm hiệu ứng scale
+							transform: "scale(0.95)",
 						},
 						visibleStyle: {
 							opacity: 1,

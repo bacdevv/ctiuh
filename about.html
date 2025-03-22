@@ -143,6 +143,7 @@
                 alt="Căn tin IUH"
                 class="img-fluid img-fluid-large border-radius-medium mb-4"
                 loading="lazy"
+                data-mobile-src="img/gallery/mobile/about-large.jpg"
                 decoding="async" />
               <div class="row">
                 <div class="col-md-6">
@@ -151,6 +152,7 @@
                     alt="Không gian căn tin"
                     class="img-fluid border-radius-medium mb-4"
                     loading="lazy"
+                    data-mobile-src="img/gallery/mobile/1.jpg"
                     decoding="async" />
                 </div>
                 <div class="col-md-6">
@@ -159,6 +161,7 @@
                     alt="Món ăn căn tin"
                     class="img-fluid border-radius-medium mb-4"
                     loading="lazy"
+                    data-mobile-src="img/gallery/mobile/2.jpg"
                     decoding="async" />
                 </div>
               </div>
@@ -180,7 +183,7 @@
           <div class="col-lg-6 mb-4 mb-lg-0">
             <div class="location-card">
               <div class="location-image">
-                <img src="img/gallery/1.jpg" alt="Cơ sở chính" class="img-fluid" />
+                <img src="img/gallery/1.jpg" alt="Cơ sở chính" class="img-fluid" loading="lazy" data-mobile-src="img/gallery/mobile/1.jpg" />
               </div>
               <div class="location-content">
                 <div class="location-header">
@@ -229,7 +232,7 @@
           <div class="col-lg-6">
             <div class="location-card">
               <div class="location-image">
-                <img src="img/gallery/3.jpg" alt="Cơ sở Phạm Văn Chiêu" class="img-fluid" />
+                <img src="img/gallery/3.jpg" alt="Cơ sở Phạm Văn Chiêu" class="img-fluid" loading="lazy" data-mobile-src="img/gallery/mobile/6.jpg" />
               </div>
               <div class="location-content">
                 <div class="location-header">
@@ -289,7 +292,7 @@
           <div class="col-md-4 mb-4">
             <div class="commitment-card">
               <div class="commitment-image">
-                <img src="img/gallery/6.jpg" alt="Thực phẩm sạch">
+                <img src="img/gallery/6.jpg" alt="Thực phẩm sạch" loading="lazy" data-mobile-src="img/gallery/mobile/6.jpg">
                 <div class="commitment-icon">
                   <i class="fa fa-leaf"></i>
                 </div>
@@ -309,7 +312,7 @@
           <div class="col-md-4 mb-4">
             <div class="commitment-card">
               <div class="commitment-image">
-                <img src="img/gallery/2.jpg" alt="Đa dạng món ăn">
+                <img src="img/gallery/2.jpg" alt="Đa dạng món ăn" loading="lazy" data-mobile-src="img/gallery/mobile/2.jpg">
                 <div class="commitment-icon">
                   <i class="fa fa-cutlery"></i>
                 </div>
@@ -329,7 +332,7 @@
           <div class="col-md-4 mb-4">
             <div class="commitment-card">
               <div class="commitment-image">
-                <img src="img/gallery/5.jpg" alt="Phục vụ tận tâm">
+                <img src="img/gallery/5.jpg" alt="Phục vụ tận tâm" loading="lazy" data-mobile-src="img/gallery/mobile/5.jpg">
                 <div class="commitment-icon">
                   <i class="fa fa-heart"></i>
                 </div>
@@ -639,5 +642,38 @@
     <script src="js/main.js" defer></script>
     <script src="js/performance-optimization.js" defer></script>
     <script src="js/webp-convert.js" defer></script>
+    <script>
+      // Mobile optimization initialization
+      document.addEventListener("DOMContentLoaded", function() {
+        // Check if we're on mobile
+        const isMobile = window.innerWidth <= 768;
+        
+        if (isMobile) {
+          // Hide elements with excessive content on mobile
+          document.querySelectorAll('.desktop-only').forEach(el => {
+            el.style.display = 'none';
+          });
+          
+          // Simplify long text sections on mobile
+          document.querySelectorAll('.mobile-optimize-text').forEach(el => {
+            if (el.textContent.length > 100) {
+              el.setAttribute('data-full-text', el.textContent);
+              el.textContent = el.textContent.substring(0, 100) + '...';
+              
+              // Add expand button
+              const expandBtn = document.createElement('button');
+              expandBtn.classList.add('expand-text-btn');
+              expandBtn.textContent = 'Đọc thêm';
+              expandBtn.addEventListener('click', function() {
+                const fullText = el.getAttribute('data-full-text');
+                el.textContent = fullText;
+                this.style.display = 'none';
+              });
+              el.parentNode.appendChild(expandBtn);
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>

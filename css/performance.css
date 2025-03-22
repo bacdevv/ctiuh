@@ -48,6 +48,58 @@ html {
 	}
 }
 
+/* Mobile optimization styles */
+@media (max-width: 768px) {
+	/* Hide desktop-only elements on mobile */
+	.desktop-only {
+		display: none !important;
+	}
+
+	/* Simplify hero slider for mobile */
+	.hero-slider .slide-item {
+		height: auto !important;
+	}
+
+	/* Simplified slide description for mobile */
+	.slide-desc {
+		padding: 5px 10px;
+		background: rgba(0, 0, 0, 0.5);
+	}
+
+	.slide-desc .slide-title {
+		font-size: 1rem;
+		margin-bottom: 2px;
+	}
+
+	.slide-desc .slide-text {
+		font-size: 0.8rem;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	/* Optimize hero text slider for mobile */
+	.hero-text-slider {
+		padding-top: 20px;
+	}
+
+	.hero-text-slider h2 {
+		font-size: 1.5rem;
+	}
+
+	.hero-text-slider p {
+		font-size: 0.9rem;
+	}
+
+	/* Optimize navigation controls for mobile */
+	.hero-slider-nav button {
+		width: 30px;
+		height: 30px;
+	}
+}
+
 @keyframes fadeIn {
 	from {
 		opacity: 0;
