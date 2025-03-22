@@ -74,6 +74,13 @@ p {
 img {
 	max-width: 100%;
 }
+
+.img-fluid-large {
+	width: 100vw;
+	height: 350px;
+    object-fit: cover;
+    object-position: 50% 75%;
+}
 a:focus,
 a:hover,
 button:focus,
@@ -898,4 +905,93 @@ li {
 /* Cập nhật thời gian chuyển cho slick-track để hiệu ứng mượt mà hơn */
 .hero-slider .slick-track {
 	transition: transform 0.4s ease-in-out; /* thay đổi từ 0.1s -> 0.4s */
+}
+/* Mobile Slideshow Styles */
+@media (max-width: 767px) {
+	.hero__section {
+		padding-top: 80px;
+		margin-bottom: 50px;
+		position: relative;
+	}
+	.slide-item {
+		height: auto;
+		margin: 0;
+	}
+	.slide-item img {
+		height: auto;
+		padding: 0;
+		aspect-ratio: 16/10;
+		object-fit: cover;
+		width: 100%;
+	}
+	.slide-desc {
+		display: none; /* Hide descriptions on mobile */
+	} /* Mobile slide title overlay */
+	.mobile-slide-title {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 10;
+		text-align: center;
+		pointer-events: none;
+	}
+	.mobile-slide-title h2 {
+		color: white;
+		font-size: 2.2rem;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+		background-color: rgba(0, 0, 0, 0.3);
+		padding: 10px 20px;
+		border-radius: 5px;
+		letter-spacing: 1px;
+		font-weight: 700;
+	} /* Updated navigation controls with flexbox */
+	.hero-slider-nav {
+		position: absolute;
+		width: 100%;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 5;
+		padding: 0 20px;
+		pointer-events: none;
+		display: flex !important;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.hero-slider-nav button {
+		width: 36px;
+		height: 36px;
+		background: rgba(255, 255, 255, 0.7);
+		border-radius: 50%;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+		pointer-events: auto;
+		position: static; /* Remove absolute positioning */
+		transform: none; /* Remove transform since we're using flex */
+	} /* Remove positioning since we're using flexbox layout */
+	.hero-slider-nav .prev-slide,
+	.hero-slider-nav .next-slide {
+		position: relative;
+		left: auto;
+		right: auto;
+	} /* Mobile slide indicators */
+	.slider-indicators {
+		display: flex;
+		justify-content: center;
+		margin-top: 15px;
+		gap: 8px;
+	}
+
+	.slider-indicators .dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: #ccc;
+		transition: all 0.3s ease;
+	}
+
+	.slider-indicators .dot.active {
+		background: var(--primary-color);
+		width: 20px;
+		border-radius: 4px;
+	}
 }
