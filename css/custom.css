@@ -178,7 +178,8 @@ a {
 }
 .modern-header.scrolled {
 	padding: 15px 0;
-	background-color: rgba(255, 255, 255, 0.98);
+	background-color: rgba(255, 255, 255, 0.98) !important;
+	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05) !important;
 }
 .sub__menu,
 .sub__menu::before {
@@ -2139,6 +2140,16 @@ html {
 	.main__menu {
 		padding-top: 8px;
 	}
+	.modern-header.scrolled {
+		background-color: rgba(255, 255, 255, 0.98) !important;
+		box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05) !important;
+	}
+	.modern-header.scrolled .header__social a,
+	.modern-header.scrolled .header__switches a,
+	.modern-header.scrolled .nav__menu > li > a {
+		color: var(--text-color) !important;
+		text-shadow: none !important;
+	}
 }
 @media (max-width: 767px) {
 	.commitment-card {
@@ -2188,6 +2199,11 @@ html {
 	}
 	.site-logo img {
 		height: 34px;
+	}
+	.modern-header.scrolled {
+		z-index: 1000 !important;
+		background-color: rgba(255, 255, 255, 0.98) !important;
+		box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05) !important;
 	}
 }
 @media (max-width: 576px) {
@@ -2482,6 +2498,11 @@ html {
 	}
 	.hero-slider-nav {
 		bottom: 60px;
+	}
+	.modern-header.scrolled {
+		z-index: 1000 !important;
+		background-color: rgba(255, 255, 255, 0.98) !important;
+		box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05) !important;
 	}
 }
 @media (max-width: 576px) {

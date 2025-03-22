@@ -50,7 +50,9 @@ const initHeader = () => {
 		$window
 			.on("scroll", () => {
 				const t = $window.scrollTop() > 0;
-				e.toggleClass("scrolled", t).toggleClass("transparent", !t);
+				e.toggleClass("scrolled", t);
+				// Remove the transparent class when scrolled
+				e.toggleClass("transparent", !t);
 			})
 			.trigger("scroll");
 	},
