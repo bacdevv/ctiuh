@@ -281,8 +281,9 @@ $(() => {
 				closedSymbol: '<i class="fa fa-angle-right"></i>',
 			}),
 			$document.on("click", (t) => {
-				0 === e(t.target).closest(".slicknav_menu, .nav-switch").length &&
-					e(".nav__menu").slicknav("close");
+				if (0 === $(t.target).closest(".slicknav_menu, .nav-switch").length) {
+					$(".nav__menu").slicknav("close");
+				}
 			}),
 			e(".search-switch").on("click", (t) => {
 				t.preventDefault(),

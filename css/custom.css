@@ -2679,6 +2679,5 @@ body:has(.fr-overlay) .modern-header {
 	/* Push header to front */
 	.modern-header {
 		z-index: 1000 !important;
-		background-color: rgba(0, 0, 0, 0.3) !important;
 	}
 }
