@@ -469,5 +469,41 @@
 		<script src="js/main.js" defer></script>
 		<script src="js/performance-optimization.js" defer></script>
 		<script src="js/mobile-slider-fix.js" defer></script>
+
+		<!-- Thêm script fix cho slicknav -->
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				// Fix lỗi giật lag khi mở menu trên trang chủ
+				const fixSlickNav = () => {
+					// Force hardware acceleration để animation mượt mà hơn
+					$('.slicknav_nav').css({
+						'transform': 'translate3d(0,0,0)',
+						'backface-visibility': 'hidden',
+						'perspective': '1000px'
+					});
+					
+					// Tạm dừng các animation khác khi menu đang mở
+					$('.slicknav_btn').on('click', function() {
+						if (!$(this).hasClass('slicknav_collapsed')) {
+							// Đang mở menu - tạm dừng các slider animation
+							$('.hero-slider').slick('slickPause');
+						} else {
+							// Đang đóng menu - tiếp tục slider
+							setTimeout(function() {
+								$('.hero-slider').slick('slickPlay');
+							}, 400);
+						}
+					});
+				};
+				
+				// Đảm bảo jQuery và slicknav đã load xong
+				if (typeof jQuery != 'undefined' && typeof jQuery.fn.slicknav != 'undefined') {
+					fixSlickNav();
+				} else {
+					// Thử lại sau 500ms nếu chưa load xong
+					setTimeout(fixSlickNav, 500);
+				}
+			});
+		</script>
 	</body>
 </html>

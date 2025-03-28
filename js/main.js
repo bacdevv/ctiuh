@@ -279,6 +279,12 @@ $(() => {
 				appendTo: ".main__menu",
 				openedSymbol: '<i class="fa fa-angle-up"></i>',
 				closedSymbol: '<i class="fa fa-angle-right"></i>',
+				prependTo: ".main__menu", // Chỉnh lại vị trí để tránh xung đột layout
+				allowParentLinks: true,
+				// Thêm các tùy chọn để cải thiện animation
+				duration: 300,
+				easingOpen: "swing",
+				easingClose: "swing",
 			}),
 			$document.on("click", (t) => {
 				if (0 === $(t.target).closest(".slicknav_menu, .nav-switch").length) {
@@ -292,5 +298,15 @@ $(() => {
 			}),
 			e(".search-close-switch").on("click", () => {
 				e(".search-model").fadeOut(400, () => e("#search-input").val(""));
+			});
+		/* Tối ưu event handler cho nav-switch để đảm bảo không có trễ */
+		e(".nav-switch")
+			.off("click")
+			.on("click", function (t) {
+				t.preventDefault();
+				t.stopPropagation();
+				setTimeout(function () {
+					e(".slicknav_btn").trigger("click");
+				}, 10); // Thêm một chút delay để tránh xung đột với các animation khác
 			});
 	})(jQuery);
