@@ -1,9 +1,4 @@
-/**
- * Custom mobile optimizations for all pages
- * This file contains mobile-specific optimizations that apply to the entire site
- */
 
-/* Base mobile optimizations */
 @media (max-width: 768px) {
 	/* Hide desktop-only elements on mobile */
 	.desktop-only {

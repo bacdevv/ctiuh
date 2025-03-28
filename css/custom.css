@@ -2271,7 +2271,7 @@ html {
 		margin: 0;
 	}
 	.site-logo img {
-		height: 32px;
+		height: 32px !important;
 	}
 	.header__switches {
 		display: flex;

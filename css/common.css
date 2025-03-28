@@ -17,7 +17,6 @@
 	--border-radius-large: 16px;
 }
 
-/* Các rule dùng chung */
 a {
 	text-decoration: none;
 	transition: var(--transition-fast);
@@ -27,4 +26,3 @@ img {
 	max-width: 100%;
 }
 
-/* ...existing code chung khác nếu cần... */
