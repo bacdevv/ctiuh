@@ -2135,7 +2135,7 @@ html {
 		padding-right: 15px;
 	}
 	.site-logo img {
-		height: 38px;
+		height: 38px !important;
 	}
 	.main__menu {
 		padding-top: 8px;
@@ -2475,7 +2475,7 @@ html {
 	.header__social a,
 	.header__switches a,
 	.nav__menu > li > a {
-		color: #fff;
+		color: #fff !important;
 		text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 	}
 	.modern-header.scrolled .site-logo img {
